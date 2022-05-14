@@ -1,0 +1,169 @@
+main {
+    font-family: 'Raleway', sans-serif;
+    width: 100%;
+    height: fit-content;
+    background-color: rgb(248, 248, 246);
+}
+
+.hero-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70vh;
+    background-image: url(../images/hero-header-img.jpg);
+    background-size: cover;
+    background-position: top 65% center;
+    z-index: 0;
+}
+
+.hero-header-content {
+    position: absolute;
+    margin-top: -2.5rem;
+    left: 7vw;
+    color: white;
+}
+
+.hero-header-content p {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.hero-header-content h2 {
+    max-width: 70%;
+    font-size: 3.375rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.hero-header-content a {
+    box-sizing: border-box;
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: .75rem;
+    border: solid 1px white;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.hero-header-content a:hover {
+    color: black;
+    background-color: white;
+}
+
+.page-content {
+    position: relative;
+    top: -2.5rem;
+    height: auto;
+    width: calc(100% - 14vw);
+    padding-left: 7vw;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: white;
+    z-index: 500;
+}
+
+.lodgings {
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+    height: 7.5rem;
+    margin-right: 2.5rem;
+    margin-bottom: 5rem;
+}
+
+.lodging-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.lodging-img {
+    height: 7.5rem;
+}
+
+.lodging-info {
+    width: auto;
+    margin-left: 2.5rem;
+}
+
+.lodging-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: .5rem;
+}
+
+.lodging-desc {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: rgb(105, 105, 105);
+}
+
+.pics {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: calc(100% + 7vw);
+    margin-bottom: 5rem;
+}
+
+.pic {
+    width: 29vw;
+    height: 39vw;
+    transition: filter 300ms;
+}
+
+.pic1 {
+    background-image: url(../images/pic1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.pic2 {
+    background-image: url(../images/pic2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.pic3 {
+    background-image: url(../images/pic3.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about h2 {
+    font-size: 3.375rem;
+    font-weight: 800;
+    color: #f2f2f2;
+}
+
+.about h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: black;
+    -webkit-text-stroke: .25rem red;
+}
+
+.about p {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: rgb(105, 105, 105);
+    margin-right: 5rem;
+    margin-left: 5rem;
+    text-align: center;
+}
