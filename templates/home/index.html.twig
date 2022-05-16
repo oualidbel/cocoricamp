@@ -3,14 +3,67 @@
 {% block title %}Cocori'Camp{% endblock %}
 
 {% block body %}
+<main>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="hero-header">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/projet_wf3/cocoricamp/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/projet_wf3/cocoricamp/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+        <div class="hero-header-content">
+            <p>Connectez-vous avec la nature</p>
+            <h2>Pour une expérience de camping premium</h2>
+            <a>Faire une réservation</a>
+        </div>
+
+    </div>
+
+    <div class="page-content">
+
+        <div class="lodgings">
+            <div class="lodging-content">
+                <img class="lodging-img" src="{{ asset('images/teepee.svg') }}">
+                <div class="lodging-info">
+                    <p class="lodging-title">Tipis</p>
+                    <p class="lodging-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet nunc dignissim orci at ac quisque felis amet. A vulputate scelerisque venenatis aliquet.</p>
+                </div>
+            </div>
+            <div class="lodging-content">
+                <img class="lodging-img" src="{{ asset('images/cabin.svg') }}">
+                <div class="lodging-info">
+                    <p class="lodging-title">Cabanes</p>
+                    <p class="lodging-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet nunc dignissim orci at ac quisque felis amet. A vulputate scelerisque venenatis aliquet.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pics">
+            <div class="pic pic1"></div>
+            <div class="pic pic2"></div>
+            <div class="pic pic3"></div>
+        </div>
+
+        <div class="about">
+            <h2>À propos</h2>
+            <div class="welcome-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3rem">
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+                        Bienvenue à COCORI'CAMP
+                    </text>
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+                        Bienvenue à COCORI'CAMP
+                    </text>
+                </svg>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. A consequat nulla pharetra ullamcorper. Integer duis blandit id risus turpis quis id non. Ultrices magna venenatis enim, tempor velit. At tortor diam nisi, urna nisi ut adipiscing.</p>
+        </div>
+
+    </div>
+    
+    <div class="first-banner">
+        <h2>Réserver votre prochaine expérience camping proche des JO de 2024</h2>
+    </div>
+
+    <div class="page-content">
+
+    </div>
+
+</main>
 {% endblock %}

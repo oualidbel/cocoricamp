@@ -1,0 +1,41 @@
+.nav {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 2.5rem);
+    height: 7vh;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav .logo {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 100%;
+}
+
+.nav .logo img {
+    height: 1rem;
+}
+
+.nav ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav ul li:nth-child(2) {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+}
