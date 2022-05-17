@@ -113,7 +113,8 @@ main {
 }
 
 .pic {
-    width: 29vw;
+    display: block;
+    min-width: 29vw;
     height: 39vw;
     transition: filter 300ms;
 }
@@ -134,6 +135,13 @@ main {
 
 .pic3 {
     background-image: url(../images/pic3.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.pic4 {
+    background-image: url(../images/pic4.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -184,23 +192,280 @@ main {
     text-align: center;
 }
 
-.first-banner {
+.banner {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 60vh;
-    background-image: url(../images/first-banner-img.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    height: 70vh;
     margin-top: -2.5rem;
 }
 
-.first-banner h2 {
+.banner h2 {
     max-width: 70%;
     font-size: 2.25rem;
     font-weight: 800;
     line-height: 2.625rem;
     color: white;
     margin-left: 7vw;
+    z-index: 100;
+}
+
+.first-banner {
+    background-image: url(../images/first-banner-img.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.second-banner {
+    position: relative;
+}
+
+.second-banner h2 {
+    margin-top: 2.5rem;
+}
+
+.second-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/second-banner-img.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(70%);
+}
+
+.check-availibility-form {
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+    justify-content: space-between;
+    margin-right: 2.5rem;
+    margin-bottom: 5rem;
+}
+
+.check-availibility-form .form-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.check-availibility-form .form-field label {
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+}
+
+.check-availibility-form .form-field i {
+    font-size: .875rem;
+    margin-right: .375rem;
+}
+
+.check-availibility-form .form-field:last-of-type {
+    justify-content: flex-end;
+}
+
+.check-availibility-form .form-field input, .check-availibility-form .form-field select {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border: none;
+    border-bottom: .125rem solid black;
+    background-color: transparent;
+}
+
+.check-availibility-form .form-field input:active, .check-availibility-form .form-field select:active {
+    border: none;
+}
+
+.check-availibility-form .form-field .submit {
+    box-sizing: border-box;
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: .75rem;
+    border: solid 2px black;
+    color: black;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.check-availibility-form .form-field .submit:hover {
+    color: white;
+    background-color: black;
+}
+
+.travelers {
+    display: none;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: absolute;
+    margin-top: 3.5rem;
+    background-color: white;
+    padding: 1.25rem;
+    border-radius: .5rem;
+    box-shadow: 0rem 0rem .5rem rgba(0, 0, 0, .25);
+}
+
+.active {
+    display: flex !important;
+}
+
+.travelers-adults, .travelers-children {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.travelers-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.travelers-text p:first-of-type {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+}
+
+.travelers-text p:last-of-type {
+    font-size: .875rem;
+    color: #696969;
+}
+
+.travelers-counter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.travelers-counter button {
+    border-radius: 100rem;
+    width: 2rem;
+    height: 2rem;
+    border: solid .0625rem rgb(105, 105, 105);
+    color: rgb(105, 105, 105);
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.travelers-counter button:hover {
+    border-color: black;
+    color: black;
+}
+
+.travelers-counter button:disabled {
+    border-color: #d1d1d1;
+    color: #d1d1d1;
+    cursor: not-allowed;
+}
+
+.travelers-counter input {
+    font-weight: 500 !important;
+    width: 2rem;
+    border-bottom: none !important;
+    text-align: center;
+    color: black;
+}
+
+.ecology {
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+    width: 100%;
+}
+
+.ecology-text {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2.5rem;
+}
+
+.ecology-text h2 {
+    font-size: 3.375rem;
+    font-weight: 700;
+    color: #f2f2f2;
+}
+
+.ecology-text .ecology-experience-text {
+    height: auto;
+    margin-top: -1.125rem;
+    margin-bottom: 2.5rem;
+    width: 100%;
+}
+
+.ecology-text .ecology-experience-text svg {
+    overflow: visible;
+}
+
+.ecology-text .ecology-experience-text svg text:first-of-type {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    stroke: white;
+    stroke-width: .5rem;
+    fill: black;
+}
+
+.ecology-text .ecology-experience-text svg text:last-of-type {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    fill: black;
+}
+
+.ecology p {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: rgb(105, 105, 105);
+}
+
+.reviews {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5rem;
+    padding-left: 7vw;
+    padding-right: 7vw;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: white;
+}
+
+.review-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+}
+
+.review-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.review-text p:first-of-type {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: rgb(105, 105, 105);
+}
+
+.review-text p:last-of-type {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: black;
 }
