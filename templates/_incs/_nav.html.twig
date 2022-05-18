@@ -5,8 +5,8 @@
         </a>
         <ul>
             <li><a href="{{ path('app_lodging') }}">Hébergements</a></li>
-            <li><a href="#">Nos services</a></li>
-            <li><a href="#">Qui sommes-nous</a></li>
+            <li><a href="{{ path('app_services') }}">Nos services</a></li>
+            <li><a href="{{ path('app_about_us') }}">Qui sommes-nous</a></li>
         </ul>
-        <a href="#" class="">S'identifier</a>
+        <a href="{{ path('app_register') }}" class="">S'identifier</a>
 </nav>

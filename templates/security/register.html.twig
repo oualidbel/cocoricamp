@@ -4,13 +4,10 @@
 
 {% block body %}
 
-    {{ form_start(form, {'attr' : {'class' : 'form col-lg-5 col-md-5 mx-auto'} } ) }}
+    {{ form_start(form) }}
 
-        {{ form_row(form.firstname) }}
-        {{ form_row(form.lastname) }}
         {{ form_row(form.email) }}
         {{ form_row(form.password) }}
-        {# {{ form_row(form.confirm_password) }} #}
 
         <button type="submit" class="btn btn-primary">Inscription</button>
 
