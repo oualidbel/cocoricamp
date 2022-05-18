@@ -4,17 +4,62 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
 </style>
+<div class="about-section">
+  <h1>Qui sommes-nous ?</h1>
+  <p>Notre projet de fin de formation chez WF3 Lille, Cocoricamp !</p>
+  <p>Proposer des hébergements, eco-responsable à des prix attractifs pour les JO 2024.</p>
+</div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<h2 style="text-align:center">L'équipe du projets est composée de 4 développeurs Web et Web mobile</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="" alt="Simon Hochard">
+      <div class="container">
+        <h2>Simon Hochard</h2>
+        <p class="title">Développeur web et web mobile</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>email</p>
+      </div>
+    </div>
+  </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/m/Desktop/projet/cocoricamp/src/Controller/AboutUsController.php'|file_link(0) }}">src/Controller/AboutUsController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/m/Desktop/projet/cocoricamp/templates/about_us/index.html.twig'|file_link(0) }}">templates/about_us/index.html.twig</a></code></li>
-    </ul>
+  <div class="column">
+    <div class="card">
+      <img src="{{ asset('images/oualid.jpg') }}" alt="Oualid Belarbi">
+      <div class="container">
+        <h2>Oualid Belarbi</h2>
+        <p class="title">Developpeur web et web mobile</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>oualid.belarbi@hotmail.fr</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="" alt="Dorian Cottin">
+      <div class="container">
+        <h2>Dorian Cottin</h2>
+        <p class="title">Développeur web et web mobile</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>email</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <img src="" alt="Mahdi Ichir">
+      <div class="container">
+        <h2>Mahdi Ichir</h2>
+        <p class="title">Developpeur web et web mobile</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>email</p>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
