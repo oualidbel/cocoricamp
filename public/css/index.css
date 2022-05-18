@@ -108,7 +108,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: calc(100% + 7vw);
+    width: calc(100% + 14vw);
     margin-bottom: 5rem;
 }
 

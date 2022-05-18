@@ -4,18 +4,24 @@
 
 {% block body %}
 
+    <div class="main-form-container">
+
     {{ form_start(form) }}
 
-    <label for="inputLastname">Nom</label>
-    {{ form_widget(form.lastname) }}
-    <label for="inputFirstname">Prénom</label>
-    {{ form_widget(form.firstname) }}
-    <label for="inputEmail">Email</label>
-    {{ form_widget(form.email) }}
-    <label for="inputPassword">Mot de passe</label>
-    {{ form_widget(form.password) }}
-    {{ form_widget(form.submit) }}
+    <div class="form-container">
+        {# <label for="inputLastname">Nom</label> #}
+        {{ form_widget(form.lastname) }}
+        {# <label for="inputFirstname">Prénom</label> #}
+        {{ form_widget(form.firstname) }}
+        {# <label for="inputEmail">Email</label> #}
+        {{ form_widget(form.email) }}
+        {# <label for="inputPassword">Mot de passe</label> #}
+        {{ form_widget(form.password) }}
+        {{ form_widget(form.submit) }}
+    </div>
 
     {{ form_end(form) }}
+
+    </div>
 
 {% endblock %}
