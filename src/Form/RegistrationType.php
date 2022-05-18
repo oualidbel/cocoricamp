@@ -25,7 +25,7 @@ class RegistrationType extends AbstractType
                 'required' => false
             ])
             ->add('submit', SubmitType::class, [
-                'label' => "S'identifier"
+                'label' => "S'inscrire"
             ])
         ;
     }
