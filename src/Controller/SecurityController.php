@@ -11,10 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-
 class SecurityController extends AbstractController
 {
-    #[Route("/security", name: 'app_security')]
+    #[Route('/security', name: 'app_security')]
     public function index(): Response
     {
         return $this->render('security/index.html.twig', [
@@ -23,7 +22,7 @@ class SecurityController extends AbstractController
     }
 
     #[Route("/register", name: 'app_register', methods: ['GET', 'POST'])]
-    public function register(Request $request, UserPasswordHasherInterface $hasher, EntityManagerInterface $manager): Response
+    public function register(Request $request, UserPasswordHasherInterface  $hasher, EntityManagerInterface $manager): Response
     {   
         //On crée un nouvel exemplaire de l'entité 'User', afin de pouvoir remplir l'objet via le formulaire, puis insertions en BDD.
 
@@ -49,10 +48,10 @@ class SecurityController extends AbstractController
 
             // En cas d'éffraction de la base de données le hacker aurais accès aux mots de passes des utilisateurs, donc on préferrera hacher les mdp, pour ce la symfony dispose de plusieurs composants et interfaces dont "UserPasswordEncoderInterface".
 
-            $hash = $hasher->hashPassword($user, $user->getPassword());
+            $hash = $hasher->encodePassword($user, $user->getPassword());
 
             $user->setPassword($hash);
-            //$user->setRoles(["ROLE_USER"]);
+            $user->setRoles(["ROLE_USER"]);
 
             $manager->persist($user);
             $manager->flush();
@@ -69,4 +68,3 @@ class SecurityController extends AbstractController
         ]);
     }
 }
-
