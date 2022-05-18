@@ -55,10 +55,12 @@ body {
     cursor: pointer;
     width: 100%;
   }
-  img {
-    width: 30%
-    
-  }
+  .imgabout { 
+    width: 30%;
+
+
+}
+
   
   .button:hover {
     background-color: #555;

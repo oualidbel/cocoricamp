@@ -9,7 +9,7 @@ main {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 70vh;
+    height: 40vh;
     background-image: url(../images/hero-header-img.jpg);
     background-size: cover;
     background-position: top 65% center;
@@ -196,7 +196,7 @@ main {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 70vh;
+    height: 40vh;
     margin-top: -2.5rem;
 }
 
@@ -242,10 +242,10 @@ main {
 .check-availibility-form {
     display: flex;
     flex-direction: row;
-    gap: 2.5rem;
     justify-content: space-between;
     margin-right: 2.5rem;
     margin-bottom: 5rem;
+    max-width: 100%;
 }
 
 .check-availibility-form .form-field {
@@ -253,9 +253,16 @@ main {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+    max-width: 15vw;
+}
+
+.check-availibility-form .nb-travelers {
+    max-width: 15vw !important;
 }
 
 .check-availibility-form .form-field label {
+    display: flex;
+    flex-direction: row;
     font-weight: 500;
     text-transform: uppercase;
     margin-bottom: .5rem;
@@ -277,6 +284,7 @@ main {
     border: none;
     border-bottom: .125rem solid black;
     background-color: transparent;
+    max-width: 100%;
 }
 
 .check-availibility-form .form-field input:active, .check-availibility-form .form-field select:active {
@@ -468,4 +476,13 @@ main {
     font-weight: 700;
     line-height: 1.5;
     color: black;
+}
+
+@media only screen and (min-width: 768px) {
+    .hero-header {
+        height: 70vh;
+    }
+    .banner {
+        height: 70vh;
+    }
 }
