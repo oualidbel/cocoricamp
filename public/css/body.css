@@ -207,6 +207,9 @@ main {
     line-height: 2.625rem;
     color: white;
     margin-left: 7vw;
+<<<<<<< mi1705
+}
+=======
     z-index: 100;
 }
 
@@ -469,3 +472,4 @@ main {
     line-height: 1.5;
     color: black;
 }
+>>>>>>> master
