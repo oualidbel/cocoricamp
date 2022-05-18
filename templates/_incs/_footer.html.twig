@@ -1,3 +1,22 @@
 <footer>
-    
+    <div class="column-container">
+        <a href="{{ path('app_home') }}" class="logo">
+            <img src="{{ asset('images/logo-footer.svg') }}" alt="">
+        </a>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id non magna sollicitudin gravida iaculis dolor.</p>
+    </div>
+    <div class="column-container">
+        <h3>Navigation</h3>
+        <a href="{{ path('app_lodging') }}">Hébergements</a>
+        <a href="{{ path('app_services') }}">Nos services</a>
+        <a href="{{ path('app_about_us') }}">Qui sommes-nous ?</a>
+        <a href="{{ path('app_security') }}">S'identifier</a>
+    </div>
+    <div class="column-container">
+        <h3>Assistance</h3>
+        <a href="#">FAQ</a>
+        <a href="#">Contact</a>
+        <a href="#">Conditions d'utilisation</a>
+        <a href="#">Politique de confidentialité</a>
+    </div>
 </footer>

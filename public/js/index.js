@@ -15,7 +15,6 @@ document.addEventListener('click', function(e) {
     if (e.target.closest(".travelers")) return;
     if (e.target.closest(".nb-travelers")) return;
 	travelersWindow.classList.remove("active");
-    console.log('click');
 });
 
 function add(input, button) {

@@ -293,6 +293,7 @@ main {
 
 .check-availibility-form .form-field .submit {
     box-sizing: border-box;
+    font-weight: 'Raleway', sans-serif;
     font-size: .75rem;
     font-weight: 600;
     text-transform: uppercase;

@@ -8,5 +8,9 @@
             <li><a href="{{ path('app_services') }}">Nos services</a></li>
             <li><a href="{{ path('app_about_us') }}">Qui sommes-nous</a></li>
         </ul>
-        <a href="{{ path('app_register') }}" class="">S'identifier</a>
+        {% if is_granted("ROLE_USER") %}
+            <a href="{{ path('app_logout') }}" class="">Se déconnecter</a>
+        {% else %}
+            <a href="{{ path('app_login') }}" class="">S'identifier</a>
+        {% endif %}
 </nav>
