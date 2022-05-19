@@ -1,6 +1,5 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
+    font-family: 'raleway', sans-serif;
   }
   
   html {
@@ -55,11 +54,12 @@ body {
     cursor: pointer;
     width: 100%;
   }
-  .imgabout { 
-    width: 30%;
 
 
-}
+  .img-about {
+    width: 30%
+    
+  }
 
   
   .button:hover {

@@ -1,6 +1,12 @@
 body {
     font-family: 'Raleway', sans-serif;
 }
+.lodging-dispo {
+    padding: 50px;
+    text-align: center;
+    background-color: #29917c;
+    color: white;
+  }
 
 .grid-container {
 
@@ -13,11 +19,11 @@ padding-top: 5rem;
 padding-bottom: 5rem;
 padding-left: 7vw;
 padding-right: 7vw;
-}
-    /* display:grid;
-    grid-template-columns: repeat(auto-fill, minmax(20vW, 1fr));
-    grid-gap: 1em;
-} */
+
+    /* display:grid; 
+    grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
+    grid-gap: 1em;*/
+} 
 
 
 /* hover styles */
