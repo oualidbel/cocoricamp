@@ -54,7 +54,7 @@ padding-right: 7vw;
     font-weight: bold;
     text-decoration: none;
     z-index: 1;
-    transition: opacity .5s;
+    transition: opacity 0.5s;
     background: rgba(90, 0, 10, 0.4);
     color: white;
 
