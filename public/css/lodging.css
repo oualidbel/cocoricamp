@@ -27,7 +27,7 @@ padding-right: 7vw;
 
 
 /* hover styles */
-.location-listing {
+.location-container {
     position: relative;
     overflow: hidden;
     display: flex;
@@ -37,16 +37,17 @@ padding-right: 7vw;
     height: 35vw;
 }
 
-.location-image {
-    position: absolute;
-    line-height: 0;
-    overflow: hidden;
-}
 
-.location-image img {
+
+.location-container img {
+    position: absolute;
     filter: blur(0px);
     transition: filter 0.3s ease-in;
     transform: scale(1.1);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -10;
 }
 
 .location-title {
@@ -58,21 +59,17 @@ padding-right: 7vw;
     background: rgba(90, 0, 10, 0.4);
     color: white;
 
-    /* position the text in t’ middle*/
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.location-listing:hover .location-title {
+.location-container:hover .location-title {
     opacity: 1;
 }
 
-.location-listing:hover .location-image img {
+.location-container:hover .location-image img {
     filter: blur(2px);
-}
-.tipis{
-    object-fit: cover;
 }
 
 /* for touch screen devices */

@@ -22,7 +22,7 @@ class SecurityController extends AbstractController
         ]);
     }
 
-    #[Route("/inscription", name: 'app_register', methods: ['GET', 'POST'])]
+    #[Route("/s'inscrire", name: 'app_register', methods: ['GET', 'POST'])]
     public function register(Request $request, UserPasswordHasherInterface $hasher, EntityManagerInterface $manager): Response
     {   
         //On crée un nouvel exemplaire de l'entité 'User', afin de pouvoir remplir l'objet via le formulaire, puis insertions en BDD.
