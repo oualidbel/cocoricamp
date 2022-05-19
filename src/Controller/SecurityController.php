@@ -43,7 +43,7 @@ class SecurityController extends AbstractController
 
         dump($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        /* if($form->isSubmitted() && $form->isValid()){
 
             //si le formulaire a bien été validé (isSubmitted) et chaque champs a bien été rempli et qu'ils corespondent aux bon setters de l'objet '$user', alors on entre ici dans le if.
 
@@ -61,8 +61,8 @@ class SecurityController extends AbstractController
 
             return $this->redirectToRoute('app_login');
 
-            /* dump($user); */
-        }
+            dump($user);
+        } */
 
         return $this->render('security/register.html.twig', [
             'form' => $form->createView()
