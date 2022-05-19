@@ -1,0 +1,76 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.grid-container {
+
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+row-gap: 2.5rem;
+justify-content: space-between;
+padding-top: 5rem;
+padding-bottom: 5rem;
+padding-left: 7vw;
+padding-right: 7vw;
+}
+   
+
+
+.services-listing {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    height: 35vw;
+}
+
+.services-image {
+    position: absolute;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.services-image img {
+    filter: blur(0px);
+    transition: filter 0.3s ease-in;
+    transform: scale(1.1);
+}
+
+.services-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    z-index: 1;
+    transition: opacity .5s;
+    background: rgba(90, 0, 10, 0.4);
+    color: white;
+
+    /* position the text in t’ middle*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.services-listing:hover .location-title {
+    opacity: 1;
+}
+
+.services-listing:hover .services-image img {
+    filter: blur(2px);
+}
+
+
+/* for touch screen devices */
+@media (hover: none) {
+    .services-title {
+        opacity: 1;
+    }
+
+    .services-image img {
+        filter: blur(2px);
+    }
+    
+}
