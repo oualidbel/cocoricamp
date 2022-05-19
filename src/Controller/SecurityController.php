@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
@@ -21,8 +22,8 @@ class SecurityController extends AbstractController
         ]);
     }
 
-    #[Route("/register", name: 'app_register', methods: ['GET', 'POST'])]
-    public function register(Request $request, UserPasswordHasherInterface  $hasher, EntityManagerInterface $manager): Response
+    #[Route("/inscription", name: 'app_register', methods: ['GET', 'POST'])]
+    public function register(Request $request, UserPasswordHasherInterface $hasher, EntityManagerInterface $manager): Response
     {   
         //On crée un nouvel exemplaire de l'entité 'User', afin de pouvoir remplir l'objet via le formulaire, puis insertions en BDD.
 
@@ -42,13 +43,13 @@ class SecurityController extends AbstractController
 
         dump($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        /* if($form->isSubmitted() && $form->isValid()){
 
             //si le formulaire a bien été validé (isSubmitted) et chaque champs a bien été rempli et qu'ils corespondent aux bon setters de l'objet '$user', alors on entre ici dans le if.
 
             // En cas d'éffraction de la base de données le hacker aurais accès aux mots de passes des utilisateurs, donc on préferrera hacher les mdp, pour ce la symfony dispose de plusieurs composants et interfaces dont "UserPasswordEncoderInterface".
 
-            $hash = $hasher->encodePassword($user, $user->getPassword());
+            $hash = $hasher->hashPassword($user, $user->getPassword());
 
             $user->setPassword($hash);
             $user->setRoles(["ROLE_USER"]);
@@ -60,11 +61,32 @@ class SecurityController extends AbstractController
 
             return $this->redirectToRoute('app_login');
 
-            /* dump($user); */
-        }
+            dump($user);
+        } */
 
         return $this->render('security/register.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    #[Route(path: '/s\'identifier', name: 'app_login')]
+    public function login(AuthenticationUtils $authenticationUtils): Response
+    {
+        // if ($this->getUser()) {
+        //     return $this->redirectToRoute('target_path');
+        // }
+
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+    }
+
+    #[Route(path: '/logout', name: 'app_logout')]
+    public function logout(): void
+    {
+        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 }
