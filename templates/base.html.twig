@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="{{ asset('css/aboutus.css') }}">
         <link rel="stylesheet" href="{{ asset('css/index.css') }}">
         <link rel="stylesheet" href="{{ asset('css/lodging.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/register.css') }}">
         <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
         
 
@@ -32,14 +33,14 @@
     {% block body %}
     {% endblock %}
 
+
+    {% include '_incs/_footer.html.twig' %}
+
     {% block javascripts %}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
     </script>
     {% endblock %}
-
-    {% include '_incs/_footer.html.twig' %}
-    
 </body>
 
 </html>

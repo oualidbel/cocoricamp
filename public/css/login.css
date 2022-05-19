@@ -63,17 +63,12 @@ body {
     background-color: transparent;
     cursor: pointer;
     transition: all 300ms;
-<<<<<<< HEAD
-=======
     margin-bottom: 1.25rem;
->>>>>>> 6e3568548f43df5df5ca59061a40bf5f8e4684d2
 }
 
 .form-container button:hover {
     color: white;
     background-color: black;
-<<<<<<< HEAD
-=======
 }
 
 .form-container p {
@@ -85,5 +80,4 @@ body {
 .form-container p a {
     font-weight: 600;
     color: black;
->>>>>>> 6e3568548f43df5df5ca59061a40bf5f8e4684d2
 }

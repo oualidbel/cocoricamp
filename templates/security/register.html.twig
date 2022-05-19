@@ -1,16 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {% endblock %}
+{% block title %}S'inscrire{% endblock %}
 
 {% block body %}
 
-    {{ form_start(form) }}
+    <div class="main-form-container">
 
-        {{ form_row(form.email) }}
-        {{ form_row(form.password) }}
+        {{ form_start(form) }}
 
-        <button type="submit" class="btn btn-primary">Inscription</button>
+        <div class="form-container">
+            <h2>S'inscrire</h2>
+            {# <label for="inputLastname">Nom</label> #}
+            {{ form_widget(form.lastname) }}
+            {# <label for="inputFirstname">Prénom</label> #}
+            {{ form_widget(form.firstname) }}
+            {# <label for="inputEmail">Email</label> #}
+            {{ form_widget(form.email) }}
+            {# <label for="inputPassword">Mot de passe</label> #}
+            {{ form_widget(form.password) }}
+            {{ form_widget(form.submit) }}
+            <p>Vous avez déjà un compte ? <a href="{{ path('app_login') }}">Connectez-vous</a></p>
+        </div>
 
-    {{ form_end(form) }}
+        {{ form_end(form) }}
+
+    </div>
 
 {% endblock %}

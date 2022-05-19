@@ -8,12 +8,6 @@ body {
     color: white;
   }
 
-img {
-    width: 100%;
-   
-    height: auto;
-}
-
 .grid-container {
 
 display: flex;
