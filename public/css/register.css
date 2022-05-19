@@ -18,11 +18,6 @@ body {
 
 .main-form-container form {
     width: 100%;
-    max-width: 60vw;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    margin-left: 7vw;
-    margin-right: 7vw;
 }
 
 .form-container {
@@ -63,17 +58,12 @@ body {
     background-color: transparent;
     cursor: pointer;
     transition: all 300ms;
-<<<<<<< HEAD
-=======
     margin-bottom: 1.25rem;
->>>>>>> 6e3568548f43df5df5ca59061a40bf5f8e4684d2
 }
 
 .form-container button:hover {
     color: white;
     background-color: black;
-<<<<<<< HEAD
-=======
 }
 
 .form-container p {
@@ -85,5 +75,85 @@ body {
 .form-container p a {
     font-weight: 600;
     color: black;
->>>>>>> 6e3568548f43df5df5ca59061a40bf5f8e4684d2
+}
+
+@media only screen and (min-width: 768px) {
+    .main-form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-form-container h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: black;
+        margin-bottom: 1.25rem;
+    }
+
+    .main-form-container form {
+        width: 100%;
+        max-width: 60vw;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        margin-left: 7vw;
+        margin-right: 7vw;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        padding: 5rem;
+        background-color: white;
+    }
+
+    .form-container label {
+        font-size: 1rem;
+        font-weight: 600;
+        color: black;
+        margin-bottom: .5rem;
+    }
+
+    .form-container input {
+        border: none;
+        background-color: #f9f9f7;
+        width: 100%;
+        padding: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .form-container input::placeholder {
+        left: 2.5rem;
+    }
+
+    .form-container button {
+        box-sizing: border-box;
+        font-weight: 'Raleway', sans-serif;
+        font-size: .75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: .75rem;
+        border: solid 2px black;
+        color: black;
+        background-color: transparent;
+        cursor: pointer;
+        transition: all 300ms;
+        margin-bottom: 1.25rem;
+    }
+
+    .form-container button:hover {
+        color: white;
+        background-color: black;
+    }
+
+    .form-container p {
+        font-size: .75rem;
+        font-weight: 500;
+        color: rgb(105, 105, 105);
+    }
+
+    .form-container p a {
+        font-weight: 600;
+        color: black;
+    }
 }
