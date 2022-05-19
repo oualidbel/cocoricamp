@@ -1,16 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ServicesController!{% endblock %}
+{% block title %}Nos Services{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="grid-container">
 
-<div class="servicesInfo">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <a id="1" class="services-listing">
 
-    navette gratuite, aire de jeux pour les enfants, taxi-trycicle, point de restauration.
-</div>
+        <p class="services-title">Nos Foodtrucks</p>
+
+        <div class="services-image">
+            <img  src="{{ asset('images/services1.jpg') }}"  alt="Nos Foodtrucks"> 
+        </div>
+
+    </a>
+
+    <a id="2" class="services-listing">
+
+        <p class="services-title">Nos aires de jeux</p>
+
+        <div class="services-image">
+            <img  src="{{ asset('images/services2.jpg') }}"  alt="Nos aires de jeux">  
+        </div>
+
+    </a>
+
+    <a id="3" class="services-listing">
+
+        <p class="services-title">Nos navettes</p>
+
+        <div class="services-image">
+            <img  src="{{ asset('images/services3.jpg') }}"  alt="Nos navettes"> 
+        </div>
+
+    </a>
+
+    <a id="4" class="services-listing">
+
+        <p class="services-title">Nos taxis tricycle</p>
+
+        <div class="services-image">
+            <img  src="{{ asset('images/services4.jpg') }}"  alt="Nos taxi-tricyle"> 
+        </div>
+
+    </a>
+
+
+</div> 
+
 {% endblock %}
