@@ -8,26 +8,40 @@
             <li><a href="{{ path('app_services') }}">Nos services</a></li>
             <li><a href="{{ path('app_about_us') }}">Qui sommes-nous</a></li>
         </ul>
-        {% if is_granted("ROLE_USER") %}
-            <a href="{{ path('app_logout') }}" class="desktop-link">Se déconnecter</a>
-        {% else %}
-            <a href="{{ path('app_login') }}" class="desktop-link">S'identifier</a>
-        {% endif %}
-        <a class="mobile-nav-button" onclick="mobileNavMenuFunction()"></a>
-        <div class="mobile-nav-menu">
-            <a href="{{ path('app_lodging') }}">Hébergements</a>
-            <hr>
-            <a href="{{ path('app_services') }}">Nos services</a>
-            <hr>
-            <a href="{{ path('app_about_us') }}">Qui sommes-nous</a>
-            <hr>
-            {% if is_granted("ROLE_USER") %}
-                <a href="{{ path('app_logout') }}" class="mobile-link">Se déconnecter</a>
-            {% else %}
-                <a href="{{ path('app_login') }}" class="mobile-link">S'identifier</a>
-            {% endif %}
+
+        <div class="right-nav-container">
+            <a class="profil-nav-button" onclick="profilNavMenuFunction()"><i class="fa-solid fa-circle-user"></i></a>
+            
+
+            <a class="mobile-nav-button" onclick="mobileNavMenuFunction()"></a>
+            
         </div>
 </nav>
+
+<ul class="profil-nav-menu">
+    <li><a href="">Mon compte</a></li>
+    <hr>
+    {% if is_granted("ROLE_ADMIN") %}
+        <li><a href="{{ path('admin') }}">Administration</a></li>
+    {% else %}
+        <li><a href="">Mes réservations</a></li>
+    {% endif %}
+    <hr>
+    {% if (is_granted("ROLE_USER")) or (is_granted("ROLE_ADMIN")) %}
+        <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+    {% else %}
+        <li><a href="{{ path('app_login') }}">S'identifier</a></li>
+    {% endif %}
+</ul> 
+
+<ul class="mobile-nav-menu">
+    <li><a href="{{ path('app_lodging') }}">Hébergements</a></li>
+    <hr>
+    <li><a href="{{ path('app_services') }}">Nos services</a></li>
+    <hr>
+    <li><a href="{{ path('app_about_us') }}">Qui sommes-nous</a></li>
+</ul>
+
 
 {% block javascript %}
     <script src="{{ asset('js/nav.js') }}"></script>
