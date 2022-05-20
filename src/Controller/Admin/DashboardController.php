@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\User;
 use App\Entity\Lodging;
 use App\Entity\Category;
 use Symfony\Component\HttpFoundation\Response;
@@ -41,16 +42,18 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
+        yield MenuItem::linkToRoute('Retourner vers le site', 'fa-solid fa-backward', 'app_home');
+
         yield MenuItem::section('Hébergements', 'fa-solid fa-campground');
+            yield MenuItem::linkToCrud('Voir les hébergements', 'fas fa-eye', Lodging::class);
+            yield MenuItem::linkToCrud('Ajouter un hébergement', 'fas fa-plus', Lodging::class)->setAction(Crud::PAGE_NEW);
 
-        yield MenuItem::subMenu('Actions', 'fa-solid fa-bars')->setSubItems([
-            MenuItem::linkToCrud('Voir les hébergements', 'fas fa-eye', Lodging::class),
-            MenuItem::linkToCrud('Ajouter un hébergement', 'fas fa-plus', Lodging::class)->setAction(Crud::PAGE_NEW)
-        ]);
+        yield MenuItem::section('Catégories', 'fa-solid fa-bars');
+            yield MenuItem::linkToCrud('Voir les catégories', 'fas fa-eye', Category::class);
+            yield MenuItem::linkToCrud('Ajouter une catégorie', 'fas fa-plus', Category::class)->setAction(Crud::PAGE_NEW);
 
-        yield MenuItem::subMenu('Catégories', 'fa-solid fa-bars')->setSubItems([
-            MenuItem::linkToCrud('Voir les catégories', 'fas fa-eye', Category::class),
-            MenuItem::linkToCrud('Ajouter une catégorie', 'fas fa-plus', Category::class)->setAction(Crud::PAGE_NEW)
-        ]);
+        yield MenuItem::section('Utilisateurs', 'fa-solid fa-user');
+            yield MenuItem::linkToCrud('Voir les utilisateurs', 'fas fa-eye', User::class);
+
     }
 }
