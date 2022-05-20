@@ -11,21 +11,18 @@
 
         <div class="right-nav-container">
             <a class="profil-nav-button" onclick="profilNavMenuFunction()"><i class="fa-solid fa-circle-user"></i></a>
-            
+
 
             <a class="mobile-nav-button" onclick="mobileNavMenuFunction()"></a>
-            
+
         </div>
 </nav>
 
 <ul class="profil-nav-menu">
-    <li><a href="">Mon compte</a></li>
-    <hr>
     {% if is_granted("ROLE_ADMIN") %}
         <li><a href="">Mon compte</a></li>
         <hr>
         <li><a href="{{ path('admin') }}">Administration</a></li>
-    {% else %}
     {% elseif is_granted("ROLE_USER") %}
         <li><a href="">Mon compte</a></li>
         <hr>
@@ -40,6 +37,7 @@
         <li><a href="{{ path('app_login') }}">S'identifier</a></li>
     {% endif %}
 </ul> 
+
 <ul class="mobile-nav-menu">
     <li><a href="{{ path('app_lodging') }}">Hébergements</a></li>
     <hr>
@@ -47,6 +45,8 @@
     <hr>
     <li><a href="{{ path('app_about_us') }}">Qui sommes-nous</a></li>
 </ul>
+
+
 {% block javascript %}
     <script src="{{ asset('js/nav.js') }}"></script>
 {% endblock %}
