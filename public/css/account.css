@@ -1,0 +1,16 @@
+.account-container {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.account-child {
+    background-color: grey;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+    font-size: 1.5rem;
+}
