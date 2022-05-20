@@ -4,80 +4,52 @@
 
 
 {% block body %}
-<div class="lodging-dispo">
-  <h1>  NOS HEBERGEMENTS </h1>
-  <p> Cocori'camp vous propose les hebergements disponible Cocori'camp vous propose les hebergementsCocori'camp vous propose les hebergements disponible Cocori'camp vous propose les hebergements disponible Cocori'camp vous propose les hebergements disponible </p>
-  
-</div>
 
-
-<div class="main-container">
-
-
-    <a class="location-listing">
-
-        <p class="location-title">Tipis</p>
-
-        <img  src="{{ asset('images/pic1.jpg') }}"  alt="Tipis"> 
-
-    </a>
-<div class="d-grid gap-2 col-6 mx-auto">
+<div class="lodging-intro">
+    <h1> NOS HEBERGEMENTS </h1>
+    <p> Cocori'camp vous propose les hebergements disponible Cocori'camp vous propose les hebergementsCocori'camp vous
+        propose les hebergements disponible Cocori'camp vous propose les hebergements disponible Cocori'camp vous
+        propose les hebergements disponible </p>
 
 </div>
+<div class="container-lodging">
+    <div class="lodging">
+        <div class="img-container">
+            <img src="{{ asset('images/tipis1.jpg') }}" alt="tipis" />
+        </div>
 
-<div class="voir-reserver">
- <a href="#" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true">Primary link</a>
-<a href="#" class="btn btn-secondary disabled" tabindex="-1" role="button" aria-disabled="true">zzz</a>
+        <div class="content-lodging">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="btn-discover-lodging" type="button"> Decouvrir </a>
+        </div>
+    </div>
+
+    <div class="lodging">
+        <div class="img-container">
+            <img src="{{ asset('images/tipis1.jpg') }}" alt="tipis" />
+        </div>
+
+        <div class="content-lodging">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="btn-discover-lodging" type="button"> Decouvrir </a>
+        </div>
+    </div>
+
+    <div class="lodging">
+        <div class="img-container">
+            <img src="{{ asset('images/tipis1.jpg') }}" alt="tipis" />
+        </div>
+
+        <div class="content-lodging">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="btn-discover-lodging" type="button"> Decouvrir </a>
+        </div>
+    </div>
+
 </div>
-    <a  class="location-listing">
-
-        <p class="location-title">Tentes</p>
-
-        <img  src="{{ asset('images/pic2.jpg') }}"  alt="Cabanes"> 
-
-    </a>
-
-    <a class="location-listing">
-
-        <p class="location-title">Cabanes</p>
-
-        <img  src="{{ asset('images/pic2.jpg') }}"  alt="Cabanes"> 
-
-    </a>
-
-    <a  class="location-listing">
-
-        <p class="location-title">Cabanes</p>
-
-        <div class="location-image">
-            <img  src="{{ asset('images/pic1.jpg') }}"  alt="Cabanes"> 
-        </div>
-
-    </a>
-
-    <a  class="location-listing">
-
-        <p class="location-title">Cabanes</p>
-
-        <div class="location-image">
-            <img  src="{{ asset('images/pic1.jpg') }}"  alt="Cabanes"> 
-        </div>
-
-    </a>
-     <a class="location-listing">
-
-        <p class="location-title">Cabanes</p>
-
-        <div class="location-image">
-            <img  src="{{ asset('images/pic1.jpg') }}"  alt="Cabanes"> 
-        </div>
-
-    </a>
-
-
-</div> 
-
-
 
 
 {% endblock %}
