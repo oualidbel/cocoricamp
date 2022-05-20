@@ -19,12 +19,16 @@
 </nav>
 
 <ul class="profil-nav-menu">
-    <li><a href="">Mon compte</a></li>
-    <hr>
     {% if is_granted("ROLE_ADMIN") %}
+        <li><a href="">Mon compte</a></li>
+        <hr>
         <li><a href="{{ path('admin') }}">Administration</a></li>
-    {% else %}
+    {% elseif is_granted("ROLE_USER") %}
+        <li><a href="">Mon compte</a></li>
+        <hr>
         <li><a href="">Mes réservations</a></li>
+    {% else %}
+        <li><a href="{{ path('app_register') }}">S'inscrire</a></li>
     {% endif %}
     <hr>
     {% if (is_granted("ROLE_USER")) or (is_granted("ROLE_ADMIN")) %}
