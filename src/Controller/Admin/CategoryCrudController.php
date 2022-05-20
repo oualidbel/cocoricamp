@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Category;
+use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class CategoryCrudController extends AbstractCrudController
@@ -12,14 +13,14 @@ class CategoryCrudController extends AbstractCrudController
         return Category::class;
     }
 
-    /*
-    public function configureFields(string $pageName): iterable
+    public function deleteEntity(EntityManagerInterface $em, $entityInstance): void
     {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
+        if (!$entityInstance instanceof Category) return;
+
+        foreach ($entityInstance->getLodgings() as $lodging) {
+            $em->remove($lodging);
+        }
+
+        parent::deleteEntity($em, $entityInstance);
     }
-    */
 }
