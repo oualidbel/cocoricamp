@@ -1,51 +1,41 @@
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Nos Services{% endblock %}
 
 {% block body %}
-<div class="grid-container">
 
-    <a id="1" class="services-listing">
+<div class="about-hero-header">
+  <div class="about-hero-header-content">
+    <h1>Nos services</h1>
+  </div>
+</div>
 
-        <p class="services-title">Nos Foodtrucks</p>
+<div class="team-container">
 
-        <div class="services-image">
-            <img  src="{{ asset('images/services1.jpg') }}"  alt="Nos Foodtrucks"> 
-        </div>
-
-    </a>
-
-    <a id="2" class="services-listing">
-
-        <p class="services-title">Nos aires de jeux</p>
-
-        <div class="services-image">
-            <img  src="{{ asset('images/services2.jpg') }}"  alt="Nos aires de jeux">  
-        </div>
-
-    </a>
-
-    <a id="3" class="services-listing">
-
-        <p class="services-title">Nos navettes</p>
-
-        <div class="services-image">
-            <img  src="{{ asset('images/services3.jpg') }}"  alt="Nos navettes"> 
-        </div>
-
-    </a>
-
-    <a id="4" class="services-listing">
-
-        <p class="services-title">Nos taxis tricycle</p>
-
-        <div class="services-image">
-            <img  src="{{ asset('images/services4.jpg') }}"  alt="Nos taxi-tricyle"> 
-        </div>
-
-    </a>
+  <div class="team-text">
+    <h2>Nos services</h2>
+    <div class="welcome-text">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3rem">
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+                Nos differents services
+            </text>
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+               mis à votre disposition
+            </text>
+        </svg>
+    </div>
+    <p>Restauration, loisirs, transports ...</p>
+    <p>Une gamme de foodtrucks, des aire de jeux, des navettes gratuites </p>
+    <p>L'équipe du projet est composée de 4 développeurs Web et Web mobile.</p>
+  </div>
+    <div class="services">
+        <img src="{{ asset('images/services1.jpg') }}" alt="">
+    </div>
+   
 
 
-</div> 
-
+{% endblock %}
+{% block javascript %}
+    <script src="{{ asset('js/services.js') }}"></script>
 {% endblock %}
