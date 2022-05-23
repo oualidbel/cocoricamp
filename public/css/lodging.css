@@ -1,27 +1,28 @@
 body {
     font-family: 'Raleway', sans-serif;
-    
-    
 }
+
 .lodging-intro h1{
     text-align: center;
     font-size: 1.25rem;
 }
+
 .lodging-intro{
     padding: 30px;
     background-color: #c7ef859e;
 
-
 }
-.container-lodging {
-    
-    background-color: #F8F8F6;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 100%;
 
+.container-lodging {
+    width: calc(100% - 14vw);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F8F8F6;
+    padding-left: 7vw;
+    padding-right: 7vw;
 }
 
 .lodging {
@@ -30,19 +31,15 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 30px 0;
-
 }
 
 .img-container {
     overflow: hidden;
-    min-width: 255px;
-    max-width: 315px;
-
-
+    max-width: auto;
+    height: 20vh;
 }
 
 .img-container img {
-
     max-width: 100%;
     vertical-align: top;
     -webkit-transition: all 1s ease-out;
@@ -56,21 +53,21 @@ body {
     transform: scale(1);
 }
 
-
 .content-lodging {
-background-color: rgb(255, 255, 255);
-display:flex;
-flex-direction:column;
-align-items: center;
-justify-content: center;
+    background-color: rgb(255, 255, 255);
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
 }
+
 .content-lodging p{
     padding: 10px;
     display: block;
     width: 70%;
     text-align: justify;
-
 }
+
 .btn-discover-lodging{
     margin-top: 30px;
     width:25%;
@@ -79,5 +76,18 @@ justify-content: center;
     background-color: #c7ef859e;
     text-align: center;
     line-height:50px;
-    
+}
+
+@media only screen and (min-width: 768px) {
+    .container-lodging {
+        flex-direction: row;
+    }
+
+    .lodging {
+        width: 25vw;
+    }
+
+    .img-container {
+        height: 30vh;
+    }
 }

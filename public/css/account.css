@@ -1,16 +1,57 @@
+/* .account-intro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+} */
+
+.account-intro {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.account-title {
+    margin: 2.5rem 0;
+    font-size: 2rem;
+}
+
 .account-container {
-    background-color: red;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem 0;
+    padding: 0 7vw;
+}
+
+.account-container hr {
+    width: 100%;
 }
 
 .account-child {
-    background-color: grey;
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    margin: 2rem 0;
-    font-size: 1.5rem;
+    margin: 2.5rem 0;
+    font-size: 1.2rem;
+}
+
+.account-edit-button {
+    box-sizing: border-box;
+    font-weight: 'Raleway', sans-serif;
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: .75rem;
+    border: solid 2px black;
+    color: black;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 300ms;
+    height: fit-content;
+}
+
+.account-edit-button:hover {
+    color: white;
+    background-color: black;
 }

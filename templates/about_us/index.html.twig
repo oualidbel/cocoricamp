@@ -1,73 +1,70 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AboutUsController!{% endblock %}
 
+{% block title %}Qui sommes-nous ?{% endblock %}
 {% block body %}
-<style>
 
-</style>
-<div class="about-section">
-  <h1>Qui sommes-nous ?</h1>
-  <p>Notre projet de fin de formation chez WF3 Lille, Cocoricamp !</p>
-  <p>Proposer des hébergements, eco-responsable à des prix attractifs pour les JO 2024.</p>
-</div>
-
-<h2 style="text-align:center">L'équipe du projets est composée de 4 développeurs Web et Web mobile</h2>
-<div class="row">
-  <div class="column">
-    <div class="card">
-
-      <img src="" alt="Simon Hochard" class="img-about">
-
-      <div class="container">
-        <h2>Simon Hochard</h2>
-        <p class="title">Développeur web et web mobile</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>email</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-
-      <img src="{{ asset('images/oualid.jpg') }}" alt="Oualid Belarbi" class="img-about">
-
-      <div class="container">
-        <h2>Oualid Belarbi</h2>
-        <p class="title">Developpeur web et web mobile</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>oualid.belarbi@hotmail.fr</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-
-      <img src="" alt="Dorian Cottin" class="img-about">
-
-      <div class="container">
-        <h2>Dorian Cottin</h2>
-        <p class="title">Développeur web et web mobile</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>email</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-
-      <img src="" alt="Mahdi Ichir" class="img-about">
-
-      <div class="container">
-        <h2>Mahdi Ichir</h2>
-        <p class="title">Developpeur web et web mobile</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>email</p>
-      </div>
-    </div>
+<div class="about-hero-header">
+  <div class="about-hero-header-content">
+    <h1>Qui sommes-nous ?</h1>
   </div>
 </div>
+
+<div class="team-container">
+
+  <div class="team-text">
+    <h2>À propos</h2>
+    <div class="welcome-text">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3rem">
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+                L'équipe COCORI'CAMP
+            </text>
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+                L'équipe COCORI'CAMP
+            </text>
+        </svg>
+    </div>
+    <p>Notre projet de fin de formation chez WF3 Lille, Cocoricamp !</p>
+    <p>Proposer des hébergements, eco-responsable à des prix attractifs pour les JO 2024.</p>
+    <p>L'équipe du projet est composée de 4 développeurs Web et Web mobile.</p>
+  </div>
+
+  <div class="team-member">
+    {# <img src="{{ asset('images/team-member.jpg') }}" alt=""> #}
+    <div class="team-member-text">
+      <h3>Simon Hochard</h3>
+      <p>Développeur Web et Web mobile</p>
+      <a href"mailto:simonhochardpro@gmail.com">simonhochardpro@gmail.com</a>
+    </div>
+  </div>
+
+  <div class="team-member">
+    {# <img src="{{ asset('images/team-member.jpg') }}" alt=""> #}
+    <div class="team-member-text">
+      <h3>Oualid Belarbi</h3>
+      <p>Développeur Web et Web mobile</p>
+      <a href"mailto:oualid.belarbi@hotmail.fr">oualid.belarbi@hotmail.fr</a>
+    </div>
+  </div>
+
+  <div class="team-member">
+    {# <img src="{{ asset('images/team-member.jpg') }}" alt=""> #}
+    <div class="team-member-text">
+      <h3>Dorian Cottin</h3>
+      <p>Développeur Web et Web mobile</p>
+      <a href"mailto:cottin.dotian@gmail.com">cottin.dotian@gmail.com</a>
+    </div>
+  </div>
+
+  <div class="team-member">
+    {# <img src="{{ asset('images/team-member.jpg') }}" alt=""> #}
+    <div class="team-member-text">
+      <h3>Mahdi Ichir</h3>
+      <p>Développeur Web et Web mobile</p>
+      <a href"mailto:mahdi.ichir@gmail.com">mahdi.ichir@gmail.com</a>
+    </div>
+  </div>
+
+</div>
+
 {% endblock %}
