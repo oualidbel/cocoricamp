@@ -25,10 +25,11 @@ footer {
     display: flex;
     justify-content: center;
     margin-bottom: 1.25rem;
+    width: 100%;
 }
 
 .column-container .logo img {
-    max-width: 60%;
+    max-width: 40%;
     height: auto;
 }
 
@@ -52,6 +53,12 @@ footer {
     line-height: 1.5;
     color: rgb(105, 105, 105);
     margin-bottom: 1.25rem;
+    text-decoration: none;
+    transition: all 300ms;
+}
+
+.column-container a:hover {
+    color: black;
 }
 
 .column-container:nth-of-type(2) a:last-of-type, .column-container:last-of-type a:last-of-type {

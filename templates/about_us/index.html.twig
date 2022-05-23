@@ -4,35 +4,67 @@
 
 {% block body %}
 
-<div class="about-hero-banner">
-  <h1>Qui sommes-nous ?</h1>
-  <p>Notre projet de fin de formation chez WF3 Lille, Cocoricamp !</p>
-  <p>Proposer des hébergements, eco-responsable à des prix attractifs pour les JO 2024.</p>
+<div class="about-hero-header">
+  <div class="about-hero-header-content">
+    <h1>Qui sommes-nous ?</h1>
+  </div>
 </div>
 
-<h2>L'équipe du projet est composée de 4 développeurs Web et Web mobile</h2>
-
 <div class="team-container">
-  <div class="team-member">
-    <img src="{{ asset('images/team-member.jpg') }}" alt="">
-    <h3>Mickaël</h3>
-    <p>Développeur Web et Web mobile</p>
+
+  <div class="team-text">
+    <h2>À propos</h2>
+    <div class="welcome-text">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3rem">
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+                L'équipe COCORI'CAMP
+            </text>
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+                L'équipe COCORI'CAMP
+            </text>
+        </svg>
+    </div>
+    <p>Notre projet de fin de formation chez WF3 Lille, Cocoricamp !</p>
+    <p>Proposer des hébergements, eco-responsable à des prix attractifs pour les JO 2024.</p>
+    <p>L'équipe du projet est composée de 4 développeurs Web et Web mobile.</p>
   </div>
+
   <div class="team-member">
-    <img src="{{ asset('images/team-member.jpg') }}" alt="">
-    <h3>Julien</h3>
-    <p>Développeur Web et Web mobile</p>
+    {# <img src="{{ asset('images/team-member.jpg') }}" alt=""> #}
+    <div class="team-member-text">
+      <h3>Simon Hochard</h3>
+      <p>Développeur Web et Web mobile</p>
+      <a href"mailto:simonhochardpro@gmail.com">simonhochardpro@gmail.com</a>
+    </div>
   </div>
+
   <div class="team-member">
-    <img src="{{ asset('images/team-member.jpg') }}" alt="">
-    <h3>Léa</h3>
-    <p>Développeur Web et Web mobile</p>
+    {# <img src="{{ asset('images/team-member.jpg') }}" alt=""> #}
+    <div class="team-member-text">
+      <h3>Oualid Belarbi</h3>
+      <p>Développeur Web et Web mobile</p>
+      <a href"mailto:oualid.belarbi@hotmail.fr">oualid.belarbi@hotmail.fr</a>
+    </div>
   </div>
+
   <div class="team-member">
-    <img src="{{ asset('images/team-member.jpg') }}" alt="">
-    <h3>Léo</h3>
-    <p>Développeur Web et Web mobile</p>
+    {# <img src="{{ asset('images/team-member.jpg') }}" alt=""> #}
+    <div class="team-member-text">
+      <h3>Dorian Cottin</h3>
+      <p>Développeur Web et Web mobile</p>
+      <a href"mailto:cottin.dotian@gmail.com">cottin.dotian@gmail.com</a>
+    </div>
   </div>
+
+  <div class="team-member">
+    {# <img src="{{ asset('images/team-member.jpg') }}" alt=""> #}
+    <div class="team-member-text">
+      <h3>Mahdi Ichir</h3>
+      <p>Développeur Web et Web mobile</p>
+      <a href"mailto:mahdi.ichir@gmail.com">mahdi.ichir@gmail.com</a>
+    </div>
+  </div>
+
 </div>
 
 {% endblock %}
