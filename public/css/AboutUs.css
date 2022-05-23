@@ -158,14 +158,14 @@ body {
   }
 
   .team-member-text h3 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   .team-member-text p {
-    font-size: 2rem;
+    font-size: 1.25rem;
   }
 
   .team-member-text a {
-    font-size: 2rem;
+    font-size: 1.25rem;
   }
 }
