@@ -1,51 +1,17 @@
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Nos Services{% endblock %}
 
 {% block body %}
-<div class="grid-container">
-
-    <a id="1" class="services-listing">
-
-        <p class="services-title">Nos Foodtrucks</p>
-
-        <div class="services-image">
-            <img  src="{{ asset('images/services1.jpg') }}"  alt="Nos Foodtrucks"> 
-        </div>
-
-    </a>
-
-    <a id="2" class="services-listing">
-
-        <p class="services-title">Nos aires de jeux</p>
-
-        <div class="services-image">
-            <img  src="{{ asset('images/services2.jpg') }}"  alt="Nos aires de jeux">  
-        </div>
-
-    </a>
-
-    <a id="3" class="services-listing">
-
-        <p class="services-title">Nos navettes</p>
-
-        <div class="services-image">
-            <img  src="{{ asset('images/services3.jpg') }}"  alt="Nos navettes"> 
-        </div>
-
-    </a>
-
-    <a id="4" class="services-listing">
-
-        <p class="services-title">Nos taxis tricycle</p>
-
-        <div class="services-image">
-            <img  src="{{ asset('images/services4.jpg') }}"  alt="Nos taxi-tricyle"> 
-        </div>
-
-    </a>
+    <h1>Nos services</h1>
+    <div class="services">
+        <img src="{{ asset('images/services1.jpg') }}" alt="">
+    </div>
+   
 
 
-</div> 
-
+{% endblock %}
+{% block javascript %}
+    <script src="{{ asset('js/services.js') }}"></script>
 {% endblock %}
