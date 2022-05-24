@@ -1,60 +1,120 @@
-.services {
-    max-width: 1000px;
-    margin: auto;
-    padding: 0 15px;
-    
+.services-hero-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+  background-image: url(../images/hero-header-img.webp);
+  background-size: cover;
+  background-position: top 65% center;
+  z-index: 0;
 }
 
-.services img {
-    width: 100%;
-    height: 400px;
-
-    border-radius: 15px;
-    object-fit: cover;
-
-    cursor: pointer;
+.services-hero-header-content {
+  margin-left: 7vw;
+  margin-right: 7vw;
+  color: white;
 }
 
-.about-hero-header {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 50vh;
-    background-image: url(../images/hero-header-img.webp);
-    background-size: cover;
-    background-position: top 65% center;
-    z-index: 0;
-  }
-  
-  .about-hero-header-content {
-    margin-left: 7vw;
-    margin-right: 7vw;
-    color: white;
-  }
-  
-  .about-hero-header-content p {
-    font-size: 1rem;
-    font-weight: 700;
-  }
-  
-  .about-hero-header-content h1 {
-    font-size: 2rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-top: 1rem;
-    margin-bottom: 1.75rem;
-  }
+.services-hero-header-content p {
+  font-size: 1rem;
+  font-weight: 700;
+}
 
+.services-hero-header-content h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 1.75rem;
+}
 
+.services-page-content {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 7vw;
+  padding-right: 7vw;
+  background-color: #fff;
+}
 
+.services-img {
+  width: 100%;
+  height: 40vh;
+  border-radius: 15px;
+  object-fit: cover;
+  cursor: pointer;
+  background-image: url(../images/services1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.services-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.services-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f2f2f2;
+}
+
+.services-text .welcome-text {
+  width: 100%;
+  height: auto;
+  margin-top: -1.125rem;
+  margin-bottom: 2.5rem;
+}
+
+.services-text .welcome-text svg text:first-of-type {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  stroke: white;
+  stroke-width: .5rem;
+  fill: black;
+}
+
+.services-text .welcome-text svg text:last-of-type {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  fill: black;
+}
+
+.services-text p {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgb(105, 105, 105);
+  text-align: justify;
+}
 
 @media only screen and (min-width: 768px) {
-    .about-hero-header {
-      height: 70vh;
-    }
-  
-    .about-hero-header-content h1 {
-      max-width: 100%;
-      font-size: 3.375rem;
-    }
+  .services-hero-header {
+    height: 70vh;
+  }
+
+  .services-hero-header-content h1 {
+    max-width: 100%;
+    font-size: 3.375rem;
+  }
+
+  .lodging-about h2 {
+    font-size: 3.375rem;
+  }
+
+  .lodging-about .welcome-text svg text:first-of-type {
+    font-size: 2rem;
+  }
+
+  .lodging-about .welcome-text svg text:last-of-type {
+    font-size: 2rem;
+  }
+
+  .lodging-about p {
+    margin-right: 5rem;
+    margin-left: 5rem;
+    text-align: center;
+  }
 }
