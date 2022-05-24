@@ -3,18 +3,25 @@
 {% block title %}Mon Compte{% endblock %}
 
 {% block body %}
+
 <div class="account-container">
+    <div class="account-intro">
+        <h2 class="account-title">Mes informations</h2>
+        <a class="account-edit-button" href="{{ path('app_account_edit', { 'id': user.id }) }}">Modifier <i class="fa-solid fa-pen-to-square"></i></a>
+    </div>
     <div class="account-child">
         <div class="label">Nom</div>
-        <div class="value">admin</div>
+        <div class="value">{{ user.lastname }}</div>
     </div>
+    <hr>
     <div class="account-child">
         <div class="label">Prénom</div>
-        <div class="value">admin</div>
+        <div class="value">{{ user.firstname }}</div>
     </div>
+    <hr>
     <div class="account-child">
         <div class="label">Email</div>
-        <div class="value">admin@gmail.com</div>
+        <div class="value">{{ user.email }}</div>
     </div>
 </div>
 {% endblock %}
