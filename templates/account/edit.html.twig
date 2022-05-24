@@ -4,31 +4,34 @@
 
 {% block body %}
 
-<div class="account-container">
+{{form_start(formEditAccount, { 'attr' : {'class' : 'account-container' }}) }}
+
+<div class="account-intro">
     <h2 class="account-title">Modifier mes informations</h2>
-    <div class="account-child">
-        <div class="label">Nom</div>
-        <div class="value">
-            {{ form_row(form.lastname, { 'label' : false }) }}
-        </div>
-        <a href="">Modifier <i class="fa-solid fa-pen-to-square"></i></a>
-    </div>
-    <hr>
-    <div class="account-child">
-        <div class="label">Prénom</div>
-        <div class="value">
-            {{ form_row(form.firstname, { 'label' : false }) }}
-        </div>
-        <a href="">Modifier <i class="fa-solid fa-pen-to-square"></i></a>
-    </div>
-    <hr>
-    <div class="account-child">
-        <div class="label">Email</div>
-        <div class="value">
-            {{ form_row(form.email, { 'label' : false }) }}
-        </div>
-        <a href="">Modifier <i class="fa-solid fa-pen-to-square"></i></a>
+    <button type="submit" class="account-edit-button" href="{{ path('app_account') }}">Modifier <i
+            class="fa-solid fa-pen-to-square"></i></button>
+</div>
+<div class="account-child">
+    <div class="label">Nom</div>
+    <div class="value">
+        {{ form_widget(formEditAccount.lastname, { 'label' : false }) }}
     </div>
 </div>
+<hr>
+<div class="account-child">
+    <div class="label">Prénom</div>
+    <div class="value">
+        {{ form_widget(formEditAccount.firstname, { 'label' : false }) }}
+    </div>
+</div>
+<hr>
+<div class="account-child">
+    <div class="label">Email</div>
+    <div class="value">
+        {{ form_widget(formEditAccount.email, { 'label' : false }) }}
+    </div>
+</div>
+
+{{form_end(formEditAccount)}}
 
 {% endblock %}

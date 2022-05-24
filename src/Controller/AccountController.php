@@ -10,6 +10,10 @@ use Symfony\Bridge\Doctrine\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\PropertyAccess\PropertyAccess;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AccountController extends AbstractController
@@ -26,29 +30,32 @@ class AccountController extends AbstractController
         ]);
     }
 
-    #[Route('/account/edit', name: 'app_account_edit', requirements: ['id' => '\d+'], methods: ['GET', 'POST'])]
-    /* public function update(ManagerRegistry $doctrine, int $id): Response
-    {
-        $entityManager = $doctrine->getManager();
-        $user = $entityManager->getRepository(User::class)->find($id);
-
-        $user->setLastname();
-        $entityManager->flush();
-
-        return $this->redirectToRoute('product_show', [
-            'id' => $product->getId()
-        ]);
-    } */
+    #[Route('/account/edit/{id}', name: 'app_account_edit', requirements: ['id' => '\d+'], methods: ['GET', 'POST'])]
     public function editUser(Request $request, User $user, EntityManagerInterface $manager, int $id)
     {
         $id = $user->getId();
 
-        $form = $this->createForm(RegistrationType::class, $user);
+        $editAccount = [];
+
+        $form = $this->createFormBuilder($editAccount)
+                    ->add('lastname', TextType::class, [        'data' => $user->getLastname()
+                    ])
+                    ->add('firstname', TextType::class, [
+                        'data' => $user->getFirstname()
+                    ])
+                    ->add('email', EmailType::class, [
+                        'data' => $user->getEmail()
+                    ])
+                    ->getForm();
+
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setLastname();
-            $user->setFirstname();
-            $user->setEmail();
+            
+            $userData = $form->getData();
+            $user->setLastname($userData['lastname']);
+            $user->setFirstname($userData['firstname']);
+            $user->setEmail($userData['email']);
             
             $manager->persist($user);
             $manager->flush();
@@ -56,7 +63,8 @@ class AccountController extends AbstractController
         }
 
         return $this->render('account/edit.html.twig', [
-            'form' => $form->createView(),
+            'formEditAccount' => $form->createView(),
+            'id' => $id,
         ]);
     }
 }
