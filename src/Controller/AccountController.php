@@ -14,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AccountController extends AbstractController
 {
-    #[Route('/account', name: 'app_account')]
+    #[Route('/mon-compte', name: 'app_account')]
     public function index(UserRepository $users): Response
     {
         $user = $this->getUser();
