@@ -1,49 +1,108 @@
 body {
     font-family: 'Raleway', sans-serif;
-    
-    
 }
-.lodging-intro h1{
-    text-align: center;
-    font-size: 1.25rem;
-}
-.lodging-intro{
-    padding: 30px;
-    background-color: #c7ef859e;
 
-}
-.container-lodging {
-    
-    background-color: #F8F8F6;
-    width: 100%;
+.lodging-hero-banner {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    height: 100%;
-
+    width: 100%;
+    height: 50vh;
+    background-image: url(../images/lodging-hero-banner-img.webp);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
 }
 
-.lodging {
-    width: 75%;
+.lodging-hero-banner-content {
+    position: absolute;
+    left: 7vw;
+    color: white;
+}
+
+.lodging-hero-banner-content h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.lodging-page-content {
+    padding-left: 7vw;
+    padding-right: 7vw;
+    background-color: #fff;
+}
+
+.lodging-about {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 30px 0;
+}
 
+.lodging-about h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f2f2f2;
+}
+
+.lodging-about .welcome-text {
+    width: 100%;
+    height: auto;
+    margin-top: -1.125rem;
+    margin-bottom: 2.5rem;
+}
+
+.lodging-about .welcome-text svg text:first-of-type {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    stroke: white;
+    stroke-width: .5rem;
+    fill: black;
+}
+
+.lodging-about .welcome-text svg text:last-of-type {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    fill: black;
+}
+
+.lodging-about p {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: rgb(105, 105, 105);
+    text-align: justify;
+}
+
+.container-lodging {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    padding-bottom: 5rem;
+}
+
+.lodging {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .img-container {
+    width: 100%;
+    height: 30vh;
     overflow: hidden;
-    min-width: 255px;
-    max-width: 315px;
-
-
 }
 
 .img-container img {
-
-    max-width: 100%;
-    vertical-align: top;
+    width: 100%;
     -webkit-transition: all 1s ease-out;
     transition: all 1s ease-out;
     -webkit-transform: scale(1.4);
@@ -55,60 +114,72 @@ body {
     transform: scale(1);
 }
 
-
 .content-lodging {
-background-color: rgb(255, 255, 255);
-display:flex;
-flex-direction:column;
-align-items: center;
-justify-content: center;
+    background-color: rgb(248, 248, 246);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
 }
-.content-lodging p{
-    padding: 10px;
-    display: block;
-    width: 70%;
+
+.content-lodging p {
+    width: 100%;
     text-align: justify;
-
-}
-.btn-discover-lodging{
-    margin-top: 30px;
-    width:25%;
-    height: 25%;
-    border-radius: 20px;
-    background-color: #c7ef859e;
-    text-align: center;
-    line-height:50px;
-    
-}
-----------------------------------------------------------------
-.hero-header-content {
-    position: absolute;
-    left: 7vw;
-    color: white;
+    margin-bottom: 1.25rem;
 }
 
-.hero-header-content p {
-    font-size: 1rem;
-    font-weight: 700;
-}
-
-.hero-header-content h2 {
-    font-size: 2rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-top: 1rem;
-    margin-bottom: 1.75rem;
-}
-
-.hero-header-content a {
+.btn-discover-lodging {
     box-sizing: border-box;
+    font-weight: 'Raleway', sans-serif;
     font-size: .75rem;
     font-weight: 600;
+    text-decoration: none;
     text-transform: uppercase;
     padding: .75rem;
-    border: solid 1px white;
-    color: white;
+    border: solid 2px black;
+    color: black;
     background-color: transparent;
     cursor: pointer;
     transition: all 300ms;
+}
+
+.btn-discover-lodging:hover {
+    color: white;
+    background-color: black;
+}
+
+@media only screen and (min-width: 768px) {
+    .lodging-about h2 {
+        font-size: 3.375rem;
+    }
+
+    .lodging-about .welcome-text svg text:first-of-type {
+        font-size: 2rem;
+    }
+
+    .lodging-about .welcome-text svg text:last-of-type {
+        font-size: 2rem;
+    }
+
+    .lodging-about p {
+        margin-right: 5rem;
+        margin-left: 5rem;
+        text-align: center;
+    }
+
+    .container-lodging {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 5rem;
+    }
+
+    .lodging {
+        width: 25vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
 }
