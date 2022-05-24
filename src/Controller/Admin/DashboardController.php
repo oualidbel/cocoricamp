@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use App\Entity\Lodging;
 use App\Entity\Category;
+use App\Entity\Location;
 use Symfony\Component\HttpFoundation\Response;
 use App\Controller\Admin\LodgingCrudController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -52,8 +53,13 @@ class DashboardController extends AbstractDashboardController
             yield MenuItem::linkToCrud('Voir les catégories', 'fas fa-eye', Category::class);
             yield MenuItem::linkToCrud('Ajouter une catégorie', 'fas fa-plus', Category::class)->setAction(Crud::PAGE_NEW);
 
+        yield MenuItem::section('Localisation', 'fa-solid fa-location-dot');
+            yield MenuItem::linkToCrud('Voir les lieux de compétitions', 'fas fa-eye', Location::class);
+            yield MenuItem::linkToCrud('Ajouter un lieu', 'fas fa-plus', Location::class)->setAction(Crud::PAGE_NEW);
+
         yield MenuItem::section('Utilisateurs', 'fa-solid fa-user');
             yield MenuItem::linkToCrud('Voir les utilisateurs', 'fas fa-eye', User::class);
 
+        
     }
 }

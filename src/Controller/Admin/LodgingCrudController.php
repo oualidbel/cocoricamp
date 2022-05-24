@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Lodging;
+use App\Entity\Location;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -51,6 +52,7 @@ class LodgingCrudController extends AbstractCrudController
                 ->setUploadDir(self::LODGINGS_UPLOAD_DIR)
                 ->setSortable(false),
             AssociationField::new('category', 'Catégorie'),
+            AssociationField::new('location', 'Localisation'),
             MoneyField::new('price', 'Prix')
                 ->setCurrency('EUR')
                 ->setStoredAsCents(false)
