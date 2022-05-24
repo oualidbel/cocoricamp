@@ -7,7 +7,7 @@
 <div class="account-container">
     <div class="account-intro">
         <h2 class="account-title">Mes informations</h2>
-        <a class="account-edit-button" href="{{ path('app_account_edit') }}">Modifier <i class="fa-solid fa-pen-to-square"></i></a>
+        <a class="account-edit-button" href="{{ path('app_account_edit', { 'id': user.id }) }}">Modifier <i class="fa-solid fa-pen-to-square"></i></a>
     </div>
     <div class="account-child">
         <div class="label">Nom</div>
@@ -24,5 +24,4 @@
         <div class="value">{{ user.email }}</div>
     </div>
 </div>
-
 {% endblock %}
