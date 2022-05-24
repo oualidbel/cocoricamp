@@ -4,16 +4,40 @@
 
 
 {% block body %}
+<div class="hero-header">
 
-<div class="lodging-intro">
+        <div class="hero-header-content">
+            
+            <h2>"Au coeur de la nature, vivez une expérience unique  proche des JO  2024 " </h2>
+            {# <a href="/lodging">Faire une réservation</a> #}
+        </div>
+
+    </div>
+
+<div class="about">
+            <h2>Nos hebergements</h2>
+            <div class="welcome-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3rem">
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+                        Disponibles
+                    </text>
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+                        Disponibles
+                    </text>
+                </svg>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. A consequat nulla pharetra ullamcorper. Integer duis blandit id risus turpis quis id non. Ultrices magna venenatis enim, tempor velit. At tortor diam nisi, urna nisi ut adipiscing.</p>
+        </div>
+
+{# <div class="lodging-intro">
     <h1> NOS HEBERGEMENTS </h1>
     <p> Cocori'camp vous propose les hebergements disponible Cocori'camp vous propose les hebergementsCocori'camp vous
         propose les hebergements disponible Cocori'camp vous propose les hebergements disponible Cocori'camp vous
         propose les hebergements disponibleCocori'camp vous propose les hebergements disponible Cocori'camp vous propose les hebergementsCocori'camp vous
         propose les hebergements disponible Cocori'camp vous propose les hebergements disponible Cocori'camp vous
         propose les hebergements disponib </p>
-</div>
 
+</div> #}
 <div class="container-lodging">
     <div class="lodging">
         <div class="img-container">
@@ -24,9 +48,11 @@
         <div class="content-lodging">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur
                 adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <a href="{{ path('app_register') }}" class="btn-discover-lodging" type="button"> Decouvrir </a>
+            <a href="{{ path('app_account') }}" class="btn-discover-lodging" type="button"> Reservé </a>
+            
         </div>
     </div>
+
 
     <div class="lodging">
         <div class="img-container">
@@ -36,7 +62,7 @@
         <div class="content-lodging">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur
                 adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <a href="#" class="btn-discover-lodging" type="button"> Decouvrir </a>
+            <a href="{{ path('app_account') }}" class="btn-discover-lodging" type="button"> Reservé </a>
         </div>
     </div>
 
@@ -48,7 +74,7 @@
         <div class="content-lodging">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur
                 adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <a href="#" class="btn-discover-lodging" type="button"> Decouvrir </a>
+            <a href="{{ path('app_account') }}" class="btn-discover-lodging" type="button"> Reservé </a>
 
         </div>
     </div>
@@ -56,4 +82,7 @@
 </div>
 
 
+<div class="banner first-banner">
+        <h2> </h2>
+    </div>
 {% endblock %}
