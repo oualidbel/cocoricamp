@@ -56,7 +56,7 @@ main {
 .page-content {
     position: relative;
     height: auto;
-    width: 100%;
+    width: calc(100% - 14vw);
     padding-left: 7vw;
     padding-right: 7vw;
     padding-top: 5rem;
@@ -105,7 +105,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: calc(100% + 7vw);
+    width: 100%;
     margin-bottom: 5rem;
 }
 
@@ -488,7 +488,7 @@ main {
         position: relative;
         margin-top: -2.5rem;
         height: auto;
-        width: calc(100% - 7vw);
+        width: calc(100% - 14vw);
         padding-left: 7vw;
         padding-right: 0;
         padding-top: 5rem;
