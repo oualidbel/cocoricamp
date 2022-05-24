@@ -53,6 +53,10 @@
     gap: 1rem;
 }
 
+.right-nav-container i {
+    font-size: 1.25rem;
+}
+
 .mobile-nav-button::before {
     position: relative;
     display: block;
@@ -208,9 +212,14 @@
 }
 
 @media only screen and (min-width: 768px) {
+    .logo {
+        width: 30vw !important;
+    }
     .desktop-nav {
         display: flex;
         flex-direction: row;
+        justify-content: center;
+        width: 40vw !important;
     }
     .nav .desktop-nav li:nth-child(2) {
         margin-left: 2.5rem;
@@ -218,6 +227,10 @@
     }
     .desktop-link {
         display: block;
+    }
+    .right-nav-container {
+        width: 30vw !important;
+        justify-content: flex-end;
     }
     .mobile-nav-button {
         display: none;
