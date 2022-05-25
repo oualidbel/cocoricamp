@@ -9,11 +9,11 @@ let counter = 1;
 
 function carousel() {
     if (counter ==5) {
-        counter = 1;
+        counter = 0;
     }
     counter++;
     console.log(service, image);
     
-    image.src = `../images/services+${counter}+.jpg`;
+    image.src = `../images/services${counter}.jpg`;
 
 };
