@@ -24,36 +24,6 @@
 
     <div class="page-content">
 
-        <div class="lodgings">
-            <div class="lodging-content">
-                <img class="lodging-img" src="{{ asset('images/teepee.svg') }}" alt="Tipi">
-                <div class="lodging-info">
-                    <p class="lodging-title">Tipis</p>
-                    <p class="lodging-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet nunc dignissim orci at ac quisque felis amet. A vulputate scelerisque venenatis aliquet.</p>
-                </div>
-            </div>
-            <div class="lodging-content">
-                <img class="lodging-img" src="{{ asset('images/cabin.svg') }}" alt="Cabane">
-                <div class="lodging-info">
-                    <p class="lodging-title">Cabanes</p>
-                    <p class="lodging-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet nunc dignissim orci at ac quisque felis amet. A vulputate scelerisque venenatis aliquet.</p>
-                </div>
-            </div>
-            <div class="lodging-content">
-                <img class="lodging-img" src="{{ asset('images/tent.svg') }}" alt="Tente">
-                <div class="lodging-info">
-                    <p class="lodging-title">Tentes</p>
-                    <p class="lodging-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet nunc dignissim orci at ac quisque felis amet. A vulputate scelerisque venenatis aliquet.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="pics">
-            <div class="pic pic1"></div>
-            <div class="pic pic2"></div>
-            <div class="pic pic3"></div>
-        </div>
-
         <div class="about">
             <h2>À propos</h2>
             <div class="welcome-text">
@@ -66,11 +36,44 @@
                     </text>
                 </svg>
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. A consequat nulla pharetra ullamcorper. Integer duis blandit id risus turpis quis id non. Ultrices magna venenatis enim, tempor velit. At tortor diam nisi, urna nisi ut adipiscing.</p>
+            <p>Chez Cocori’Camp nous avons pour ambition que vous passiez un séjour olympique en or, sans mauvais jeu de mots. Pour cela nous vous proposons des <span class="important-words">campings “premium”</span> aux abords (moins de 20 km) des lieux de compétitions des Jeux Olympiques de Paris 2024. De plus, un service de <span class="important-words">navettes gratuites</span> vous permettra de naviguer entre votre nid douillet et l'effervescence des Jeux. Afin que vous puissiez vous détendre, des <span class="important-words">aires de jeux pour petits et grands</span> seront disponibles dans votre camping. Côté restauration, des <span class="important-words">food-trucks</span> seront présents sur tout le site. Enfin, si une envie touristique vous prend, notre partenaire Tricycle de la Vie pourra vous <span class="important-words">faire découvrir</span> notre magnifique pays.</p>
+        </div>
+
+        <div class="pics">
+            <div class="pic pic1"></div>
+            <div class="pic pic2"></div>
+            <div class="pic pic3"></div>
+        </div>
+
+        <div class="lodgings">
+            <div class="lodging-content">
+                <img class="lodging-img" src="{{ asset('images/teepee.svg') }}" alt="Tipi">
+                <div class="lodging-info">
+                    <p class="lodging-title">Tipis</p>
+                    <p class="lodging-desc">Venez vous reposer dans un magnifique tipi traditionnel fait à partir de
+                        tissus 100% recyclés.</p>
+                </div>
+            </div>
+            <div class="lodging-content">
+                <img class="lodging-img" src="{{ asset('images/cabin.svg') }}" alt="Cabane">
+                <div class="lodging-info">
+                    <p class="lodging-title">Cabanes</p>
+                    <p class="lodging-desc">Nos grandes cabanes construites grâce à un bois issu de forêt gérée
+                        durablement.</p>
+                </div>
+            </div>
+            <div class="lodging-content">
+                <img class="lodging-img" src="{{ asset('images/tent.svg') }}" alt="Tente">
+                <div class="lodging-info">
+                    <p class="lodging-title">Tentes</p>
+                    <p class="lodging-desc">Nous vous proposons aussi des tentes “premium” avec planchers… Elles aussi
+                        sont faites avec des matériaux éco-responsables.</p>
+                </div>
+            </div>
         </div>
 
     </div>
-    
+
     <div class="banner first-banner">
         <h2>Réserver votre prochaine expérience camping proche des JO de 2024</h2>
     </div>
@@ -101,9 +104,11 @@
                             <p>13 ans et plus</p>
                         </div>
                         <div class="travelers-counter">
-                            <button class="minus" type="button" name="button" id="minus-adults" disabled onclick="substract(adultsInput, this)">-</button>
+                            <button class="minus" type="button" name="button" id="minus-adults" disabled
+                                onclick="substract(adultsInput, this)">-</button>
                             {{ form_widget(formCheckAvailibility.adults) }}
-                            <button class="plus" type="button" name="button" id="plus-adults" onclick="add(adultsInput, this)">+</button>
+                            <button class="plus" type="button" name="button" id="plus-adults"
+                                onclick="add(adultsInput, this)">+</button>
                         </div>
                     </div>
                     <div class="travelers-children">
@@ -112,18 +117,21 @@
                             <p>- de 13 ans</p>
                         </div>
                         <div class="travelers-counter">
-                            <button class="minus" type="button" name="button" id="minus-children" disabled onclick="substract(childrenInput, this)">-</button>
+                            <button class="minus" type="button" name="button" id="minus-children" disabled
+                                onclick="substract(childrenInput, this)">-</button>
                             {{ form_widget(formCheckAvailibility.children) }}
-                            <button class="plus" type="button" name="button" id="plus-children" onclick="add(childrenInput, this)">+</button>
+                            <button class="plus" type="button" name="button" id="plus-children"
+                                onclick="add(childrenInput, this)">+</button>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="form-field">
-                <label for="lodging"><svg xmlns="http://www.w3.org/2000/svg" height=".75rem" fill="none" viewBox="0 0 12 10">
-                                        <path stroke="#000" d="M1.67 9.432 6 1.942l4.33 7.49H1.67Z"/>
-                                    </svg>Logement</label>
+                <label for="lodging"><svg xmlns="http://www.w3.org/2000/svg" height=".75rem" fill="none"
+                        viewBox="0 0 12 10">
+                        <path stroke="#000" d="M1.67 9.432 6 1.942l4.33 7.49H1.67Z" />
+                    </svg>Logement</label>
                 {{ form_widget(formCheckAvailibility.lodging) }}
             </div>
 
@@ -150,9 +158,8 @@
                     </svg>
                 </div>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis nec sed tellus diam mattis iaculis eu blandit velit. Morbi volutpat magna commodo ligula ut dui porta. Scelerisque tristique bibendum morbi suspendisse est fames dolor. Donec eu id vitae id massa. Pharetra nunc, nullam scelerisque imperdiet ac.</br></br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis sed id amet nam erat cursus. Ligula amet velit eget id nibh diam. Odio eget molestie amet cursus nibh et pulvinar est. Laoreet lectus nulla tristique diam velit amet molestie.</br></br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl, eget ut sed blandit quam. Tincidunt in mattis volutpat velit vestibulum, et mattis. Nisl sem at eget ipsum platea id dignissim. Dui neque, proin aliquam vitae. Vel nulla molestie tellus ultrices augue nullam mi adipiscing mauris. Quis interdum sit libero donec tempor.
+                    Chez Cocori’Camp, <span class="important-words">notre priorité c’est l’environnement.</span> Nous mettons tout en œuvre afin de préserver notre belle planète Terre. Pour ce faire, nos hébergements sont réalisés à partir de <span class="important-words">matériaux 100% recyclés</span>, mais aussi recyclables. De plus, ils sont <span class="important-words">entièrement démontables</span> pour qu’une fois les Jeux Olympiques de Paris 2024 finis, nous rendons à Mère Nature la parcelle que cette dernière nous a prêté.</br></br>
+                    Nos amis les restaurateurs vous proposeront des produits issus de la filière <span class="important-words">biologique</span> ou de filière <span class="important-words">éco-responsable</span>. Ils travaillent uniquement avec des produits locaux et de saison.</br></br>
                 </p>
             </div>
         </div>
@@ -167,69 +174,87 @@
         <div class="review-container">
             <div class="stars">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                    <path fill="#000" d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z"/>
+                    <path fill="#000"
+                        d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                    <path fill="#000" d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z"/>
+                    <path fill="#000"
+                        d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                    <path fill="#000" d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z"/>
+                    <path fill="#000"
+                        d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                    <path fill="#000" d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z"/>
+                    <path fill="#000"
+                        d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                    <path fill="#000" d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z"/>
+                    <path fill="#000"
+                        d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z" />
                 </svg>
             </div>
             <div class="review-text">
-                <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dolor elit nunc vestibulum, consequat, id convallis eu. Vestibulum tempor non et feugiat ultricies.”</p>
+                <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dolor elit nunc vestibulum,
+                    consequat, id convallis eu. Vestibulum tempor non et feugiat ultricies.”</p>
                 <p>Jeannette Benjamin, FR</p>
             </div>
         </div>
         <div class="review-container">
             <div class="stars">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                    <path fill="#000" d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z"/>
+                    <path fill="#000"
+                        d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                    <path fill="#000" d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z"/>
+                    <path fill="#000"
+                        d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                    <path fill="#000" d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z"/>
+                    <path fill="#000"
+                        d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                    <path fill="#000" d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z"/>
+                    <path fill="#000"
+                        d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                    <path fill="#000" d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z"/>
+                    <path fill="#000"
+                        d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z" />
                 </svg>
             </div>
             <div class="review-text">
-                <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dolor elit nunc vestibulum, consequat, id convallis eu. Vestibulum tempor non et feugiat ultricies.”</p>
+                <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dolor elit nunc vestibulum,
+                    consequat, id convallis eu. Vestibulum tempor non et feugiat ultricies.”</p>
                 <p>Kaito Toshima, JPN</p>
             </div>
         </div>
         <div class="review-container">
             <div class="stars">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                    <path fill="#000" d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z"/>
+                    <path fill="#000"
+                        d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                    <path fill="#000" d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z"/>
+                    <path fill="#000"
+                        d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                    <path fill="#000" d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z"/>
+                    <path fill="#000"
+                        d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                    <path fill="#000" d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z"/>
+                    <path fill="#000"
+                        d="m7.333 11.565 4.532 2.673L10.663 9.2l4.004-3.39-5.273-.438L7.334.62 5.272 5.371 0 5.81 4.004 9.2l-1.203 5.04 4.532-2.674Z" />
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 15 15">
-                    <path stroke="#000" d="m7.92 11.134-.253-.15-.254.15-3.519 2.076.93-3.895.071-.299-.235-.198-3.082-2.61 4.07-.338.298-.025.119-.275 1.602-3.694L9.269 5.57l.119.275.298.025 4.07.337-3.083 2.61-.235.2.072.298.93 3.895-3.52-2.076Z"/>
+                    <path stroke="#000"
+                        d="m7.92 11.134-.253-.15-.254.15-3.519 2.076.93-3.895.071-.299-.235-.198-3.082-2.61 4.07-.338.298-.025.119-.275 1.602-3.694L9.269 5.57l.119.275.298.025 4.07.337-3.083 2.61-.235.2.072.298.93 3.895-3.52-2.076Z" />
                 </svg>
             </div>
             <div class="review-text">
-                <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dolor elit nunc vestibulum, consequat, id convallis eu. Vestibulum tempor non et feugiat ultricies.”</p>
+                <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dolor elit nunc vestibulum,
+                    consequat, id convallis eu. Vestibulum tempor non et feugiat ultricies.”</p>
                 <p>Seth Ellis, USA</p>
             </div>
         </div>
@@ -240,5 +265,5 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('js/index.js') }}"></script>
+<script src="{{ asset('js/index.js') }}"></script>
 {% endblock %}
