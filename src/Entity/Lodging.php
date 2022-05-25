@@ -33,6 +33,10 @@ class Lodging
     #[ORM\JoinColumn(nullable: false)]
     private $category;
 
+    #[ORM\ManyToOne(targetEntity: Location::class, inversedBy: 'lodgings')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $location;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,6 +110,18 @@ class Lodging
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getLocation(): ?Location
+    {
+        return $this->location;
+    }
+
+    public function setLocation(?Location $location): self
+    {
+        $this->location = $location;
 
         return $this;
     }
