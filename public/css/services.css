@@ -91,10 +91,6 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .services-hero-header {
-    height: 70vh;
-  }
-
   .services-hero-header-content h1 {
     max-width: 100%;
     font-size: 3.375rem;
