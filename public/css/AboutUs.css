@@ -140,10 +140,6 @@ body {
 } */
 
 @media only screen and (min-width: 768px) {
-  .about-hero-header {
-    height: 70vh;
-  }
-
   .about-hero-header-content h1 {
     max-width: 100%;
     font-size: 3.375rem;
