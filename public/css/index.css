@@ -66,12 +66,16 @@ main {
     z-index: 500;
 }
 
+.important-words {
+    color: green;
+    font-weight: 700;
+}
+
 .lodgings {
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
     height: auto;
-    margin-bottom: 5rem;
 }
 
 .lodging-content {
@@ -582,6 +586,10 @@ main {
         margin-top: 2.5rem;
     }
 
+    .about {
+        margin-bottom: 5rem;
+    }
+
     .about h2 {
         font-size: 3.375rem;
     }
@@ -595,9 +603,8 @@ main {
     }
 
     .about p {
-        margin-right: 5rem;
-        margin-left: 5rem;
-        text-align: center;
+        margin-right: 2.5rem;
+        text-align: justify;
     }
 
     .check-availibility-form {
@@ -643,10 +650,6 @@ main {
 
     .ecology-text .ecology-experience-text svg text:last-of-type {
         font-size: 2rem;
-    }
-
-    .ecology-text p {
-        text-align: left;
     }
 
     .reviews {
