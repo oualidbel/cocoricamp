@@ -40,6 +40,7 @@ main {
     font-size: .75rem;
     font-weight: 600;
     text-transform: uppercase;
+    text-decoration: none;
     padding: .75rem;
     border: solid 1px white;
     color: white;
@@ -111,8 +112,8 @@ main {
 
 .pic {
     display: block;
-    min-width: 29vw;
-    height: 39vw;
+    min-width: 86vw;
+    height: 106vw;
     transition: filter 300ms;
 }
 
@@ -121,6 +122,31 @@ main {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    animation: picAnimationMobile 12s infinite;
+}
+
+@keyframes picAnimationMobile {
+    0% {
+        background-image: url(../images/pic1.webp);
+    }
+    30% {
+        background-image: url(../images/pic1.webp);
+    }
+    40% {
+        background-image: url(../images/pic2.webp);
+    }
+    60% {
+        background-image: url(../images/pic2.webp);
+    }
+    70% {
+        background-image: url(../images/pic3.webp);
+    }
+    90% {
+        background-image: url(../images/pic3.webp);
+    }
+    100% {
+        background-image: url(../images/pic1.webp);
+    }
 }
 
 .pic2 {
@@ -128,6 +154,7 @@ main {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    display: none;
 }
 
 .pic3 {
@@ -135,6 +162,7 @@ main {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    display: none;
 }
 
 .pic4 {
@@ -497,11 +525,31 @@ main {
     }
 
     .pics {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         width: calc(100% + 7vw);
+        margin-bottom: 5rem;
+    }
+
+    .pic {
+        display: block;
+        min-width: 29vw;
+        height: 39vw;
+        transition: filter 300ms;
+    }
+
+    .pic1 {
+        animation: none;
+    }
+
+    .pic2, .pic3 {
+        display: block;
     }
 
     .lodgings {
         margin-right: 2.5rem;
+        flex-direction: column;
     }
 
     .lodging-content {
@@ -614,7 +662,7 @@ main {
 
 @media only screen and (min-width: 972px) {
     .lodgings {
-        flex-direction: row;
-        height: 7.5rem;
+        flex-direction: column;
+        height: auto;
     }
 }

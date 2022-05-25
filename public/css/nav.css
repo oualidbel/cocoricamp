@@ -232,7 +232,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-    .logo {
+    .nav .logo {
         width: 20vw !important;
     }
     .desktop-nav {
