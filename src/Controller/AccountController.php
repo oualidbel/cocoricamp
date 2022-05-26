@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\RegistrationType;
 use App\Repository\UserRepository;
+use App\Repository\LodgingRepository;
+use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +25,7 @@ class AccountController extends AbstractController
     {
         $user = $this->getUser();
 
-        $id = $user->getId();
+       
 
         return $this->render('account/index.html.twig', [
             'user' => $user,
@@ -67,4 +69,29 @@ class AccountController extends AbstractController
             'id' => $id,
         ]);
     }
+
+    #[Route('/lodging/{type}', name: 'app_lodging_type', methods: ['GET', 'POST'])]
+    public function lodging(UserRepository $users, string $type, LodgingRepository $lodging, CategoryRepository $category): Response
+    {
+        $user = $this->getUser();
+
+        if ($type === 'tout'){
+            $data = $lodging->findAll();
+            return $this->render('lodging/lodgingPerType.html.twig', [
+                'data' => $data,
+                'title' => 'hebergements',
+            ]);
+        }else{
+            $categoryEntity = $category->findOneByName($type);
+
+            $data = $lodging->findByCategory($categoryEntity->getId());
+    
+            return $this->render('lodging/lodgingPerType.html.twig', [
+                'data' => $data,
+                'title' => $categoryEntity->getName(),
+            ]);
+        }
+
+    }
+
 }
