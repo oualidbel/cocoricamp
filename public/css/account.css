@@ -4,36 +4,59 @@
     flex-direction: column;
 } */
 
+.account-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem;
+    background-color: white;
+}
+
 .account-intro {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1.25rem;
 }
 
 .account-title {
-    margin: 2.5rem 0;
-    font-size: 2rem;
-}
-
-.account-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 7vw;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: black;
 }
 
 .account-container hr {
     width: 100%;
+    border: none;
+    border-top: solid 1px black;
+    margin: 0;
 }
 
 .account-child {
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    margin: 2.5rem 0;
+    margin: 1.25rem 0;
     font-size: 1.2rem;
+}
+
+
+.account-child:first-of-type {
+    margin-top: 0;
+}
+
+.account-child:last-of-type {
+    margin-bottom: 0;
+}
+
+.account-child input {
+    border: none;
+    background-color: #f9f9f7;
+    width: auto;
+    padding: 1.25rem;
 }
 
 .account-edit-button {
@@ -55,4 +78,27 @@
 .account-edit-button:hover {
     color: white;
     background-color: black;
+}
+
+@media only screen and (min-width: 768px) {
+    .main-account-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .account-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5rem;
+        margin: 5rem 7vw;
+        background-color: white;
+        width: 100%;
+        max-width: 60vw;
+    }
+
+    .account-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
 }
