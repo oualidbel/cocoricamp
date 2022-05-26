@@ -39,20 +39,20 @@ class LodgingRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Lodging[] Returns an array of Lodging objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('l')
-//            ->andWhere('l.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('l.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+
+   /**
+    * @return Lodging[] Returns an array of Lodging objects
+    */
+   public function findByCategory($category): array
+   {
+       return $this->createQueryBuilder('l')
+           ->andWhere('l.category = :val')
+           ->setParameter('val', $category)
+           ->orderBy('l.id', 'ASC')
+           ->getQuery()
+           ->getResult()
+       ;
+   }
 
 //    public function findOneBySomeField($value): ?Lodging
 //    {
