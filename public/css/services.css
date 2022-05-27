@@ -36,21 +36,11 @@
   background-color: #fff;
 }
 
-.services-img {
-  width: 100%;
-  height: 40vh;
-  border-radius: 15px;
-  object-fit: cover;
-  cursor: pointer;
-  background-image: url(../images/services1.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
 .services-text {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 5rem;
 }
 
 .services-text h2 {
@@ -88,6 +78,75 @@
   line-height: 1.5;
   color: rgb(105, 105, 105);
   text-align: justify;
+}
+
+.services-img {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 40vh;
+  border-radius: 15px;
+  object-fit: cover;
+  cursor: pointer;
+  background-image: url(../images/services0.jpg);
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 2.5rem;
+}
+
+.services-img-button {
+  width: 50%;
+  height: 100%;
+  font-size: 3rem;
+  color: white;
+  opacity: .8;
+  display: flex;
+  align-items: center;
+  transition: all 300ms;
+}
+
+.services-img-button:hover {
+  opacity: 1;
+}
+
+.services-img-left-button {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.services-img-left-button i {
+  margin-left: 1.25rem;
+}
+
+.services-img-right-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.services-img-right-button i {
+  margin-right: 1.25rem;
+}
+
+.services-content-item {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.services-content-item.active {
+  display: flex;
+}
+
+.services-content-item h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.services-content-item p {
+  line-height: 1.5;
+  text-align: center;
 }
 
 @media only screen and (min-width: 768px) {

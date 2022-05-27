@@ -30,7 +30,7 @@
 .account-container hr {
     width: 100%;
     border: none;
-    border-top: solid 1px black;
+    border-top: solid 1px rgb(105, 105, 105);
     margin: 0;
 }
 
