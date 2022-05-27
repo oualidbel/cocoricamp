@@ -10,7 +10,7 @@ console.log('test');
 image.addEventListener('click', function() {
     if (counter == 5) {
         counter = 0;
-    }
+    } 
     counter++;
     image.style.backgroundImage = `url(../images/services${counter}.jpg)`;
     console.log(image.style.backgroundImage = `url(../images/services${counter}.jpg)`);
