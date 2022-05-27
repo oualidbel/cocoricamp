@@ -6,6 +6,9 @@ const plusAdults = document.getElementById('plus-adults');
 const plusChildren = document.getElementById('plus-children');
 const adultsInput = document.getElementById('form_adults');
 const childrenInput = document.getElementById('form_children');
+const hostCapacity = parseInt(document.getElementById('host-capacity').innerHTML.slice(-1));
+
+console.log(hostCapacity);
 
 nbTravelersInput.addEventListener('click', () => {
     travelersWindow.classList.toggle('active');
@@ -36,7 +39,7 @@ function add(input, button) {
         }
     }
     var travelers = parseInt(adultsInput.value) + parseInt(childrenInput.value);
-    if (travelers == 8) {
+    if (travelers == hostCapacity) {
         plusAdults.disabled = true;
         plusChildren.disabled = true;
         nbTravelersInput.value = `${travelers} voyageurs`;
@@ -72,7 +75,7 @@ function substract(input, button) {
         }
     } 
     var travelers = parseInt(adultsInput.value) + parseInt(childrenInput.value);
-    if (travelers < 8) {
+    if (travelers < hostCapacity) {
         plusAdults.disabled = false;
         plusChildren.disabled = false;
         if (travelers == 0) {
@@ -89,10 +92,18 @@ function substract(input, button) {
 
 const formCheckIn = document.getElementById('form_check_in');
 const formCheckOut = document.getElementById('form_check_out');
+const pricePerNight = parseInt(document.getElementById('price').innerHTML.split('€')[0]);
 
 formCheckIn.addEventListener('change', () => {
     var date = new Date(formCheckIn.value);
     date.setDate(date.getDate() + 1);
     formCheckOut.min = date.toISOString().split('T')[0];
     formCheckOut.value = date.toISOString().split('T')[0];
+});
+
+formCheckOut.addEventListener('change', () => {
+    var checkInDate = new Date(formCheckIn.value);
+    var checkOutDate = new Date(formCheckOut.value);
+    var nbNights = Math.ceil((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+    document.getElementById('price').innerHTML = `${nbNights * pricePerNight}€<span>/${nbNights} nuits</span>`;
 });

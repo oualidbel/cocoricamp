@@ -34,7 +34,7 @@
 
         <div class="lodging">
 
-            <div class="img-container">
+            <div class="lodging-img-container">
                 <img src="{{ asset('images/tipis1.jpg') }}" alt="tipis" />
             </div>
 
@@ -42,16 +42,15 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur
                     adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
-                <a href="{{ path('app_lodging_type', { 'type': 'Tipis' }) }}" class="btn-discover-lodging" type="button">LES TIPIS</a>
+                <a href="{{ path('app_lodging_show', {'data': {'lodging': '2'}}) }}" class="btn-discover-lodging" type="button">Les tipis</a>
 
-                
             </div>
 
         </div>
 
 
         <div class="lodging">
-            <div class="img-container">
+            <div class="lodging-img-container">
                 <img src="{{ asset('images/cabane1.jpg') }}" alt="cabane" />
             </div>
 
@@ -59,14 +58,13 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur
                     adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
-                <a href="{{ path('app_lodging_type',{ 'type': 'Cabanes en bois' }) }}" class="btn-discover-lodging" type="button">LES CABANES</a>
+                <a href="{{ path('app_lodging_show', {'data': {'lodging': '3'}}) }}" class="btn-discover-lodging" type="button">Les cabanes</a>
 
-                
             </div>
         </div>
 
         <div class="lodging">
-            <div class="img-container">
+            <div class="lodging-img-container">
                 <img src="{{ asset('images/tente1.jpg') }}" alt="tente" />
             </div>
 
@@ -74,16 +72,14 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur
                     adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
-                <a href="{{ path('app_lodging_type',{ 'type': 'Tentes' }) }}" class="btn-discover-lodging" type="button">LES TENTES</a>
-
-                
+                <a href="{{ path('app_lodging_show', {'data': {'lodging': '4'}}) }}" class="btn-discover-lodging" type="button">Les tentes</a>
 
             </div>
         </div>
     
     </div>
-    <a href="{{ path('app_lodging_type', { 'type': 'tout' }) }}" class="btn-discover-lodging" type="button">Afficher tout les hebergements</a>
-    
+
+    <a href="{{ path('app_lodging_show') }}" class="btn-discover-lodging" type="button">Tous les hébergements</a>
 
 </div>
 
