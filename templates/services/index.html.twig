@@ -1,7 +1,7 @@
 
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos Services{% endblock %}
+{% block title %}Nos services{% endblock %}
 
 {% block body %}
 
@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<div class="services-page--content">
+<div class="services-page-content">
   <div class="services-text">
     <h2>Nos services</h2>
     <div class="welcome-text">
@@ -25,29 +25,49 @@
       </svg>
     </div>
     <p>Restauration, loisirs, transports ...</p>
-    <p>Une gamme de foodtrucks, des aire de jeux, des navettes gratuites </p>
-   
+    <p>Une gamme de foodtrucks, des aire de jeux, des navettes gratuites...</p>
   </div>
+
   <div class="services-description">
-  <p><xsmall>cliquez sur l'image pour passer à la suivante</xsmall></p> 
-  <div class="services-img"></div>
-  <div class="services-content">
-    <h2>RESTAURATION : </h2>
-    <p>Nos foodtrucks sont présents sur site, vous proposant des menus divers et variés.
-    Vegan, snack, friterie ...
-     </p>
-     <br>
-      <h2>AIRES DE JEUX : </h2>
-    <p>Nos aires de jeux sont présents sur site, pour tout les enfants de 0 a 12 ans
-     </p> 
-     <br>
-     <h2>NOS NAVETTES GRATUITES : </h2>
-    <p>Nos navettes seront présentes pour vous accompagner aux épreuves myhtique des JO. Tout ça écologiquement et gratuitement.
-     </p> 
-     <br>
-     <h2>NOS TAXI TRICYCLE : </h2>
-    <p>Partez à la découverte des magnifiques paysages aux abords de note site. 
-     </p>
+
+    <div class="services-img">
+
+      <div class="services-img-button services-img-left-button"><i class="fa-solid fa-chevron-left" onclick ="changeImagePrevious()"></i></div>
+      <div class="services-img-button services-img-right-button"><i class="fa-solid fa-chevron-right" onclick="changeImageNext()"></i></div>
+
+    </div>
+
+    <div class="services-content">
+
+      <div class="services-content-item active">
+        <h2>La restauration</h2>
+        <p>Nos foodtrucks sont présents sur site, vous proposant des menus divers et variés.
+        Vegan, snack, friterie...
+        </p>
+      </div>
+
+      <div class="services-content-item">
+        <h2>Nos navettes gratuites</h2>
+        <p>Nos navettes seront présentes pour vous accompagner aux épreuves myhtique des JO. Tout ça écologiquement et gratuitement.
+        </p>
+      </div>
+
+      <div class="services-content-item">
+        <h2>Nos aires de jeux</h2>
+        <p>Nos aires de jeux sont présents sur site, pour tout les enfants de 0 a 12 ans.
+        </p>
+      </div>
+
+      <div class="services-content-item">
+        <h2>Nos taxis tricycle</h2>
+        <p>Partez à la découverte des magnifiques paysages aux abords de note site. 
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 
 {% endblock %}
