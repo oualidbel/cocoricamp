@@ -26,6 +26,10 @@ class LodgingController extends AbstractController
     public function show(Request $request, LodgingRepository $repository): Response
     {
 
+        if (!isset($category)) {
+            $category = 'all';
+        }
+
         if (!$request->get('data')) {
             $lodgings = $repository->findAll();
         } else {
@@ -97,22 +101,75 @@ class LodgingController extends AbstractController
             // data is an array with ... keys
             $data = $form->getData();
             $lodgings = $repository->findByFilter($data);
+            $category = $data['lodging'];
         }
         
         return $this->render('lodging/show.html.twig', [
             'controller_name' => 'LodgingController',
             'lodgings' => $lodgings,
+            'category' => $category,
             'formCheckAvailibility' => $form->createView(),
         ]);
     }
 
-    #[Route('/hébergements/{id}', name: 'app_lodging_show_id', methods: ['GET'])]
-    public function showId(LodgingRepository $repository, int $id): Response
+    #[Route('/hébergements/{id}', name: 'app_lodging_show_id', methods: ['GET', 'POST'])]
+    public function showId(LodgingRepository $repository, Request $request, int $id): Response
     {
         $lodging = $repository->find($id);
 
+        $reservation = [];
+
+        $form = $this->createFormBuilder($reservation)
+                    ->add('check_in', DateType::class, [
+                        'widget' => 'single_text',
+                        'required' => true,
+                        'attr' => [
+                            'placeholder' => 'Date d\'arrivée',
+                            'min' => date('Y-m-d'),
+                            'value' => date('Y-m-d'),
+                        ],
+                    ])
+                    ->add('check_out', DateType::class, [
+                        'widget' => 'single_text',
+                        'required' => true,
+                        'attr' => [
+                            'placeholder' => 'Date de départ',
+                            'min' => date('Y-m-d', strtotime('+1 day')),
+                            'value' => date('Y-m-d', strtotime('+1 day')),
+                        ],
+                    ])
+                    ->add('adults', NumberType::class, [
+                        'required' => true,
+                        'attr' => [
+                            'min' => 0,
+                            'max' => $lodging->getHostCapacity(),
+                            'value' => 0,
+                            'id' => 'adults-input',
+                            'disabled' => 'disabled'
+                        ],
+                    ])
+                    ->add('children', NumberType::class, [
+                        'attr' => [
+                            'min' => 0,
+                            'max' => $lodging->getHostCapacity(),
+                            'value' => 0,
+                            'id' => 'children-input',
+                            'disabled' => 'disabled'
+                        ],
+                    ])
+                    ->getForm();
+
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            // data is an array with ... keys
+            $data = $form->getData();
+            dd($data);
+        }
+
         return $this->render('lodging/showId.html.twig', [
             'controller_name' => 'LodgingController',
+            'ReservationForm' => $form->createView(),
             'lodging' => $lodging,
         ]);
     }

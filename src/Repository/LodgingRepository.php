@@ -78,8 +78,7 @@ class LodgingRepository extends ServiceEntityRepository
 
         if (isset($filter['adults'])) {
             $nbPeople = $filter['adults'] + $filter['children'];
-
-            $query->andWhere('l.host_capacity >= :nbPeople')
+            $query->andWhere('l.host_capacity = :nbPeople')
                 ->setParameter('nbPeople', $nbPeople);
         }
 

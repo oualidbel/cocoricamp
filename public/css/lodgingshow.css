@@ -146,11 +146,21 @@ body {
     height: auto;
 }
 
-.content-lodging-show-last-line-right {
+.content-lodging-show-last-line-left {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+    gap: 1.25rem;
+    width: 50%;
+}
+
+.content-lodging-show-last-line-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.25rem;
     width: 50%;
 }
 
@@ -246,18 +256,31 @@ body {
         height: auto;
     }
 
+    .content-lodging-show-last-line-left {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1.25rem;
+        width: 50%;
+    }
+
+    .content-lodging-show-last-line-left p {
+        width: auto;
+    }
+
     .content-lodging-show-last-line-right {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
         align-items: center;
+        gap: 1.25rem;
         width: 50%;
     }
 
     .content-lodging-show-last-line-right h3 {
         font-size: 1.5rem;
         font-weight: 600;
-        margin-right: 1.25rem;
     }
 
     .content-lodging-show-last-line-right h3 span {

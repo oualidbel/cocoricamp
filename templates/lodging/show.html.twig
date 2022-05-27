@@ -4,8 +4,6 @@
 
 {% block body %}
 
-{% for lodging in lodgings %}
-
 	<div class="lodging-show-page-content">
 
         <div class="lodging-show-about">
@@ -13,10 +11,10 @@
             <div class="welcome-text">
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3rem">
                     <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
-                        Nos {% if lodging.category == '2' %}tipis{% elseif lodging.category == '3' %}cabanes{% elseif lodging.category == '4' %}tentes{% else %}hébergements{% endif %}
+                        Nos {% if category == '2' %}tipis{% elseif category == '3' %}cabanes{% elseif category == '4' %}tentes{% else %}hébergements{% endif %}
                     </text>
                     <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
-                        Nos {% if lodging.category == '2' %}tipis{% elseif lodging.category == '3' %}cabanes{% elseif lodging.category == '4' %}tentes{% else %}hébergements{% endif %}
+                        Nos {% if category == '2' %}tipis{% elseif category == '3' %}cabanes{% elseif category == '4' %}tentes{% else %}hébergements{% endif %}
                     </text>
                 </svg>
             </div>
@@ -83,7 +81,9 @@
 
             </div>
 
-        {{ form_end(formCheckAvailibility, {'render_rest' : false}) }}
+        {{ form_end(formCheckAvailibility) }}
+
+    {% for lodging in lodgings %}
 
 		<div class="container-lodging-show">
             <div class="lodging-show">
@@ -97,7 +97,10 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur
                         adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     <div class="content-lodging-show-last-line">
-                        <p><i class="fa-regular fa-user"></i> {{ lodging.hostcapacity }}</p>
+                        <div class="content-lodging-show-last-line-left">
+                            <p><i class="fa-regular fa-user"></i> {{ lodging.hostcapacity }}</p>
+                            <p><i class="fa-regular fa-compass"></i> {{ lodging.location }}</p>
+                        </div>
                         <div class="content-lodging-show-last-line-right">
                             <h3>{{ lodging.price }}€<span>/nuit</span></h3>
                             <a href="{{ path('app_lodging_show_id', { 'id': lodging.id }) }}" class="btn-discover-lodging-show" type="button">Réserver</a>
@@ -109,9 +112,10 @@
 
 		</div>
 
+    {% endfor %}
+
 	</div>
 
-{% endfor %}
 
 {% endblock %}
 

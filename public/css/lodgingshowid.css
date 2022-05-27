@@ -1,0 +1,283 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.lodging-show-id-hero-banner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+    background-image: url(../images/lodging-show-id-hero-banner-img.webp);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.lodging-show-id-hero-banner-content {
+    display: flex;
+    align-items: center;
+    padding-left: 7vw;
+    padding-right: 7vw;
+    width: calc(100% - 14vw);
+    height: 100%;
+    backdrop-filter: brightness(70%);
+    color: white;
+}
+
+.lodging-show-id-hero-banner-content h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.lodging-show-id-page-content {
+    padding-left: 7vw;
+    padding-right: 7vw;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: #fff;
+}
+
+.lodging-show-id {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lodging-show-id-img-container {
+    width: 100%;
+    height: auto;
+    padding-top: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.lodging-show-id-img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+}
+
+.content-lodging-show-id {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+.reservation-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.reservation-form .form-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.reservation-form .form-field label {
+    display: flex;
+    flex-direction: row;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+}
+
+.reservation-form .form-field i {
+    font-size: .875rem;
+    margin-right: .375rem;
+}
+
+.reservation-form .form-field:last-of-type {
+    justify-content: flex-end;
+}
+
+.reservation-form .form-field input, .reservation-form .form-field select {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border: none;
+    border-bottom: .125rem solid black;
+    background-color: transparent;
+    max-width: 100%;
+}
+
+.reservation-form .form-field input:active, .reservation-form .form-field select:active {
+    border: none;
+}
+
+.reservation-form .form-field .submit {
+    box-sizing: border-box;
+    font-weight: 'Raleway', sans-serif;
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: .75rem;
+    border: solid 2px black;
+    color: black;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.reservation-form .form-field .submit:hover {
+    color: white;
+    background-color: black;
+}
+
+
+.content-lodging-show-id h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.content-lodging-show-id p {
+    width: 100%;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.content-lodging-show-id-last-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.content-lodging-show-id-last-line-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+}
+
+.content-lodging-show-id-last-line-right h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-right: 1.25rem;
+}
+
+.content-lodging-show-id-last-line-right h3 span {
+    font-size: 1rem;
+}
+
+.btn-discover-lodging-show-id {
+    box-sizing: border-box;
+    font-weight: 'Raleway', sans-serif;
+    font-size: .75rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: .75rem;
+    border: solid 2px black;
+    color: black;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.btn-discover-lodging-show-id:hover {
+    color: white;
+    background-color: black;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .lodging-show-id {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .lodging-show-id-img-container {
+        width: 40vw;
+        height: 40vw;
+        overflow: hidden;
+        padding-top: 0;
+        margin-bottom: 0;
+    }
+
+    .content-lodging-show-id {
+        width: calc(100% - 40vw - 2.5rem);
+        height: 40vw;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        padding: 2.5rem;
+        padding-right: 0;
+    }
+
+    .reservation-form {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 100%;
+    }
+
+    .reservation-form .form-field {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 45%;
+    }
+
+    .content-lodging-show-id-last-line {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: auto;
+    }
+
+    .content-lodging-show-id-last-line-left {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1.25rem;
+        width: 50%;
+    }
+
+    .content-lodging-show-id-last-line-left p {
+        width: auto;
+    }
+
+    .content-lodging-show-id-last-line-right {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1.25rem;
+        width: 50%;
+    }
+
+    .content-lodging-show-id-last-line-right h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .content-lodging-show-id-last-line-right h3 span {
+        font-size: 1rem;
+    }
+}

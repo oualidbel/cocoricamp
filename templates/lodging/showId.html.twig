@@ -4,50 +4,89 @@
 
 {% block body %}
 
-	<div class="lodging-show-page-content">
+	<div class="lodging-show-id-page-content">
 
-        <div class="lodging-show-about">
-            <h2>Découvrir</h2>
-            <div class="welcome-text">
-                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3rem">
-                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
-                        Les
-                    </text>
-                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
-                        Nos
-                    </text>
-                </svg>
+        <div class="lodging-show-id">
+
+            <div class="lodging-show-id-img-container">
+                <img src=" {{ asset('images/') }}{{ lodging.picture }}" alt="tipis"/>
             </div>
-        </div>
-
-		<div class="container-lodging-show">
-            <div class="lodging-show">
-
-                <div class="img-container">
-                    <img src=" {{ asset('images/') }}{{ lodging.picture }}" alt="tipis"/>
-                </div>
+            
+            <div class="content-lodging-show-id">
+                <h2>{{ lodging.title }}</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 
-                <div class="content-lodging-show">
-                    <h2>{{ lodging.title }}</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <div class="content-lodging-show-last-line">
-                        <p><i class="fa-regular fa-user"></i> {{ lodging.hostcapacity }}</p>
-                        <div class="content-lodging-show-last-line-right">
-                            <h3>{{ lodging.price }}€<span>/nuit</span></h3>
-                            <a href="{{ path('app_lodging_show_id', { 'id': lodging.id }) }}" class="btn-discover-lodging-show" type="button">Réserver</a>
+                {{ form_start(ReservationForm) }}
+
+                <div class="reservation-form">
+
+                    <div class="form-field">
+                        <label for="check-in-date"><i class="fa-regular fa-calendar"></i>Date d'arrivée</label>
+                        {{ form_widget(ReservationForm.check_in) }}
+                    </div>
+
+                    <div class="form-field">
+                        <label for="check-out-date"><i class="fa-regular fa-calendar"></i>Date de départ</label>
+                        {{ form_widget(ReservationForm.check_out) }}
+                    </div>
+
+                    <div class="form-field">
+                        <label for="nb-travelers"><i class="fa-regular fa-user"></i>Voyageurs</label>
+                        <input type="text" name="nb-travelers" class="nb-travelers" id="nb-travelers" value="Qui ?" readonly>
+                        <div class="travelers" id="travelers-window">
+                            <div class="travelers-adults">
+                                <div class="travelers-text">
+                                    <p>Adultes</p>
+                                    <p>13 ans et plus</p>
+                                </div>
+                                <div class="travelers-counter">
+                                    <button class="minus" type="button" name="button" id="minus-adults" disabled
+                                        onclick="substract(adultsInput, this)">-</button>
+                                    {{ form_widget(ReservationForm.adults) }}
+                                    <button class="plus" type="button" name="button" id="plus-adults"
+                                        onclick="add(adultsInput, this)">+</button>
+                                </div>
+                            </div>
+                            <div class="travelers-children">
+                                <div class="travelers-text">
+                                    <p>Enfants</p>
+                                    <p>- de 13 ans</p>
+                                </div>
+                                <div class="travelers-counter">
+                                    <button class="minus" type="button" name="button" id="minus-children" disabled
+                                        onclick="substract(childrenInput, this)">-</button>
+                                    {{ form_widget(ReservationForm.children) }}
+                                    <button class="plus" type="button" name="button" id="plus-children"
+                                        onclick="add(childrenInput, this)">+</button>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+
+                </div>
+
+                <div class="content-lodging-show-id-last-line">
+                    <div class="content-lodging-show-id-last-line-left">
+                        <p id="host-capacity"><i class="fa-regular fa-user"></i> {{ lodging.hostcapacity }}</p>
+                        <p><i class="fa-regular fa-compass"></i> {{ lodging.location }}</p>
+                    </div>
+                    <div class="content-lodging-show-id-last-line-right">
+                        <h3 id="price">{{ lodging.price }}€<span>/nuit</span></h3>
+                        <button class="btn-discover-lodging-show-id" type="submit">Réserver</button>
                     </div>
                 </div>
 
+                {{ form_end(ReservationForm) }}
+
             </div>
 
-		</div>
+        </div>
 
 	</div>
 
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('js/lodging.js') }}"></script>
+    <script src="{{ asset('js/lodgingshowid.js') }}"></script>
 {% endblock %}
