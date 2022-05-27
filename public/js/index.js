@@ -86,3 +86,13 @@ function substract(input, button) {
         }
     }
 }
+
+const formCheckIn = document.getElementById('form_check_in');
+const formCheckOut = document.getElementById('form_check_out');
+
+formCheckIn.addEventListener('change', () => {
+    var date = new Date(formCheckIn.value);
+    date.setDate(date.getDate() + 1);
+    formCheckOut.min = date.toISOString().split('T')[0];
+    formCheckOut.value = date.toISOString().split('T')[0];
+});

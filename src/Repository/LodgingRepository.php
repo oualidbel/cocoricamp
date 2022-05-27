@@ -40,19 +40,51 @@ class LodgingRepository extends ServiceEntityRepository
     }
 
 
-   /**
+    /**
     * @return Lodging[] Returns an array of Lodging objects
     */
-   public function findByCategory($category): array
-   {
-       return $this->createQueryBuilder('l')
-           ->andWhere('l.category = :val')
-           ->setParameter('val', $category)
-           ->orderBy('l.id', 'ASC')
-           ->getQuery()
-           ->getResult()
-       ;
-   }
+    public function findByCategory($category): array
+    {
+        return $this->createQueryBuilder('l')
+            ->andWhere('l.category = :val')
+            ->setParameter('val', $category)
+            ->orderBy('l.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /**
+     * @return Lodging[] Returns an array of Lodging objects
+     */
+    public function findByFilter(array $filter): array
+    {
+        $query = $this->createQueryBuilder('l');
+
+        if (isset($filter['lodging'])) {
+            $query->andWhere('l.category = :category')
+                ->setParameter('category', $filter['lodging']);
+        }
+
+        // if (isset($filter['check_in'])) {
+        //     $query->andWhere('l.check_in >= :check_in')
+        //         ->setParameter('check_in', $filter['check_in']);
+        // }
+
+        // if (isset($filter['check_out'])) {
+        //     $query->andWhere('l.check_out <= :check_out')
+        //         ->setParameter('check_out', $filter['check_out']);
+        // }
+
+        if (isset($filter['adults'])) {
+            $nbPeople = $filter['adults'] + $filter['children'];
+
+            $query->andWhere('l.host_capacity >= :nbPeople')
+                ->setParameter('nbPeople', $nbPeople);
+        }
+
+        return $query->getQuery()->getResult();
+    }
 
 //    public function findOneBySomeField($value): ?Lodging
 //    {

@@ -2,25 +2,27 @@
 
 namespace App\Controller;
 
+use App\Repository\LodgingRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
-    public function index(): Response
+    #[Route('/', name: 'app_home', methods: ['GET', 'POST'])]
+    public function index(Request $request, LodgingRepository $repository): Response
     {
         $checkAvailability = [];
 
         $form = $this->createFormBuilder($checkAvailability)
                     ->add('check_in', DateType::class, [
                         'widget' => 'single_text',
+                        'required' => false,
                         'attr' => [
                             'placeholder' => 'Date d\'arrivée',
                             'min' => date('Y-m-d'),
@@ -29,6 +31,7 @@ class HomeController extends AbstractController
                     ])
                     ->add('check_out', DateType::class, [
                         'widget' => 'single_text',
+                        'required' => false,
                         'attr' => [
                             'placeholder' => 'Date de départ',
                             'min' => date('Y-m-d', strtotime('+1 day')),
@@ -55,9 +58,10 @@ class HomeController extends AbstractController
                     ])
                     ->add('lodging', ChoiceType::class, [
                         'choices' => [
-                            'Tipi' => 'teepee',
-                            'Cabane' => 'cabin',
-                            'Tente' => 'tent',
+                            'Type de logement ?' => null,
+                            'Tipis' => 2,
+                            'Cabanes' => 3,
+                            'Tentes' => 4,
                         ],
                         'attr' => [
                             'placeholder' => 'Logement',
@@ -71,9 +75,14 @@ class HomeController extends AbstractController
                     ])
                     ->getForm();
 
+        $form -> handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             // data is an array with ... keys
             $data = $form->getData();
+            return $this->redirectToRoute('app_lodging_show', [
+                'data' => $data,
+            ]);
         }
 
         return $this->render('home/index.html.twig', [
