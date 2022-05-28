@@ -64,7 +64,6 @@ class LodgingController extends AbstractController
                             'max' => 8,
                             'value' => 0,
                             'id' => 'adults-input',
-                            'disabled' => 'disabled'
                         ],
                     ])
                     ->add('children', NumberType::class, [
@@ -73,7 +72,6 @@ class LodgingController extends AbstractController
                             'max' => 8,
                             'value' => 0,
                             'id' => 'children-input',
-                            'disabled' => 'disabled'
                         ],
                     ])
                     ->add('lodging', ChoiceType::class, [
@@ -112,7 +110,7 @@ class LodgingController extends AbstractController
         ]);
     }
 
-    #[Route('/hébergements/{id}', name: 'app_lodging_show_id', methods: ['GET', 'POST'])]
+    #[Route('/hébergements/disponible/{id}', name: 'app_lodging_show_id', methods: ['GET', 'POST'])]
     public function showId(LodgingRepository $repository, Request $request, int $id): Response
     {
         $lodging = $repository->find($id);
@@ -120,7 +118,7 @@ class LodgingController extends AbstractController
         $reservation = [];
 
         $form = $this->createFormBuilder($reservation)
-                    ->add('check_in', DateType::class, [
+                    ->add('checkin', DateType::class, [
                         'widget' => 'single_text',
                         'required' => true,
                         'attr' => [
@@ -129,7 +127,7 @@ class LodgingController extends AbstractController
                             'value' => date('Y-m-d'),
                         ],
                     ])
-                    ->add('check_out', DateType::class, [
+                    ->add('checkout', DateType::class, [
                         'widget' => 'single_text',
                         'required' => true,
                         'attr' => [
@@ -141,11 +139,10 @@ class LodgingController extends AbstractController
                     ->add('adults', NumberType::class, [
                         'required' => true,
                         'attr' => [
-                            'min' => 0,
+                            'min' => 1,
                             'max' => $lodging->getHostCapacity(),
                             'value' => 0,
                             'id' => 'adults-input',
-                            'disabled' => 'disabled'
                         ],
                     ])
                     ->add('children', NumberType::class, [
@@ -154,17 +151,24 @@ class LodgingController extends AbstractController
                             'max' => $lodging->getHostCapacity(),
                             'value' => 0,
                             'id' => 'children-input',
-                            'disabled' => 'disabled'
                         ],
                     ])
                     ->getForm();
 
         $form->handleRequest($request);
         
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid() && $form->getData()['adults'] + $form->getData()['children'] > 0) {
             // data is an array with ... keys
             $data = $form->getData();
-            dd($data);
+            // lodging name
+            $lodgingName = $lodging->getTitle();
+            $checkIn = $data['checkin']->format('Y-m-d');
+            $checkOut = $data['checkout']->format('Y-m-d');
+            $pricePerNight = $lodging->getPrice();
+            $reservation = array_merge($data, ['checkIn' => $checkIn, 'checkOut' => $checkOut, 'pricePerNight' => $pricePerNight, 'lodgingId' => $id, 'lodgingName' => $lodgingName]);
+            return $this->redirectToRoute('app_reservation', [
+                'reservation' => $reservation,
+            ]);
         }
 
         return $this->render('lodging/showId.html.twig', [
