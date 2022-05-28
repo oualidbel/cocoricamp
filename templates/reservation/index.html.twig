@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre réservation{% endblock %}
+
+{% block body %}
+
+<div class="reservation-main-container">
+    <div class="reservation-info-container">
+        <h2>Les détails de votre réservation</h2>
+        <div class="reservation-date-container">
+            <div class="reservation-checkin-date">
+                <h3>Arrivée</h3>
+                <p>{{ reservation.checkIn|date('d/m/Y') }}</p>
+            </div>
+            <hr>
+            <div class="reservation-checkout-date">
+                <h3>Départ</h3>
+                <p>{{ reservation.checkOut|date('d/m/Y') }}</p>
+            </div>
+            <h3>Durée totale du séjour :</h3>
+            <p>{% if nbNights > 1 %}{{ nbNights }} nuits{% else %}{{ nbNights }} nuit{% endif %}</p>
+        </div>
+        <hr>
+        <div class="reservation-price-container">
+            <h3>Récapitulatif du montant</h3>
+            <div class="reservation-price-line">
+                <p>{{ reservation.lodgingName }}</p>
+                <p>{{ price - (price * 0.2) }}€</p>
+            </div>
+            <div class="reservation-price-line">
+                <p>20% de TVA</p>
+                <p>{{ (price * 0.2) }}€</p>
+            </div>
+            <div class="reservation-price-line">
+                <p>Total</p>
+                <p>{{ price }}€</p>
+            </div>
+        </div>
+    </div>
+    <div class="reservation-form-container">
+
+        {{ form_start(clientInfosForm) }}
+
+        <h2 class="reservation-form-title">Saisissez vos coordonées</h2>
+
+        <div class="reservation-form-line">
+            <div class="reservation-form-field">
+                <label for="firstname">Prénom</label>
+                {{ form_widget(clientInfosForm.firstname) }}
+            </div>
+
+            <div class="reservation-form-field">
+                <label for="lastname">Nom</label>
+                {{ form_widget(clientInfosForm.lastname) }}
+            </div>
+        </div>
+
+        <div class="reservation-form-field">
+            <label for="email">Email</label>
+            {{ form_widget(clientInfosForm.email) }}
+        </div>
+        
+        <div class="reservation-form-field">
+            <label for="phone">Téléphone</label>
+            {{ form_widget(clientInfosForm.phone) }}
+        </div>
+        
+        <div class="reservation-form-line">
+            <div class="reservation-form-field">
+                <label for="address">Adresse</label>
+                {{ form_widget(clientInfosForm.address) }}
+            </div>
+            
+            <div class="reservation-form-field">
+                <label for="city">Ville</label>
+                {{ form_widget(clientInfosForm.city) }}
+            </div>
+        </div>
+        
+        <div class="reservation-form-line">
+            <div class="reservation-form-field">
+                <label for="zipCode">Code postal</label>
+                {{ form_widget(clientInfosForm.zipCode) }}
+            </div>
+            
+            <div class="reservation-form-field">
+                <label for="country">Pays</label>
+                {{ form_widget(clientInfosForm.country) }}
+            </div>
+        </div>
+        
+        <div class="reservation-form-field">
+            {{ form_widget(clientInfosForm.submit) }}
+        </div>
+
+        {{ form_end(clientInfosForm) }}
+
+    </div>
+</div>
+
+{% endblock %}

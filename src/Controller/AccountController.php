@@ -25,14 +25,12 @@ class AccountController extends AbstractController
     {
         $user = $this->getUser();
 
-       
-
         return $this->render('account/index.html.twig', [
             'user' => $user,
         ]);
     }
 
-    #[Route('/account/edit/{id}', name: 'app_account_edit', requirements: ['id' => '\d+'], methods: ['GET', 'POST'])]
+    #[Route('/mon-compte/modifier/{id}', name: 'app_account_edit', requirements: ['id' => '\d+'], methods: ['GET', 'POST'])]
     public function editUser(Request $request, User $user, EntityManagerInterface $manager, int $id)
     {
         $id = $user->getId();
@@ -69,29 +67,4 @@ class AccountController extends AbstractController
             'id' => $id,
         ]);
     }
-
-    #[Route('/lodging/{type}', name: 'app_lodging_type', methods: ['GET', 'POST'])]
-    public function lodging(UserRepository $users, string $type, LodgingRepository $lodging, CategoryRepository $category): Response
-    {
-        $user = $this->getUser();
-
-        if ($type === 'tout'){
-            $data = $lodging->findAll();
-            return $this->render('lodging/lodgingPerType.html.twig', [
-                'data' => $data,
-                'title' => 'hebergements',
-            ]);
-        }else{
-            $categoryEntity = $category->findOneByName($type);
-
-            $data = $lodging->findByCategory($categoryEntity->getId());
-    
-            return $this->render('lodging/lodgingPerType.html.twig', [
-                'data' => $data,
-                'title' => $categoryEntity->getName(),
-            ]);
-        }
-
-    }
-
 }

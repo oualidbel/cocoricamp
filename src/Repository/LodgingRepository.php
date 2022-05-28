@@ -62,7 +62,7 @@ class LodgingRepository extends ServiceEntityRepository
         $query = $this->createQueryBuilder('l');
 
         if (isset($filter['lodging'])) {
-            $query->andWhere('l.category = :category')
+            $query->andWhere('l.category >= :category')
                 ->setParameter('category', $filter['lodging']);
         }
 

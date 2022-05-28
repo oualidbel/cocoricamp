@@ -70,7 +70,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.25rem;
+    gap: 2.5rem;
 }
 
 .reservation-form {
@@ -78,6 +78,7 @@ body {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
+    width: calc(100vw - 14vw);
     gap: 2.5rem;
     margin-bottom: 2.5rem;
 }
@@ -219,8 +220,6 @@ body {
 
     .content-lodging-show-id {
         width: calc(100% - 40vw - 2.5rem);
-        height: 40vw;
-        justify-content: space-evenly;
         align-items: flex-start;
         padding: 2.5rem;
         padding-right: 0;
@@ -231,7 +230,7 @@ body {
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: space-between;
-        max-width: 100%;
+        width: 100%;
     }
 
     .reservation-form .form-field {
