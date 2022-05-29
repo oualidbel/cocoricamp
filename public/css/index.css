@@ -630,7 +630,7 @@ main {
     }
 
     .ecology-pic {
-        height: 39vw;
+        height: auto;
     }
 
     .ecology-text {

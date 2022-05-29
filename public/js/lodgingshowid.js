@@ -90,8 +90,8 @@ function substract(input, button) {
     }
 }
 
-const formCheckIn = document.getElementById('form_check_in');
-const formCheckOut = document.getElementById('form_check_out');
+const formCheckIn = document.getElementById('form_checkin');
+const formCheckOut = document.getElementById('form_checkout');
 const pricePerNight = parseInt(document.getElementById('price').innerHTML.split('€')[0]);
 
 formCheckIn.addEventListener('change', () => {
