@@ -30,7 +30,7 @@ class LodgingController extends AbstractController
             $category = 'all';
         }
 
-        if (!$request->get('data')) {
+        if ($request->get('data') == null) {
             $lodgings = $repository->findAll();
         } else {
             $data = $request->get('data');
@@ -46,7 +46,6 @@ class LodgingController extends AbstractController
                         'attr' => [
                             'placeholder' => 'Date d\'arrivée',
                             'min' => date('Y-m-d'),
-                            'value' => date('Y-m-d'),
                         ],
                     ])
                     ->add('check_out', DateType::class, [
@@ -55,7 +54,6 @@ class LodgingController extends AbstractController
                         'attr' => [
                             'placeholder' => 'Date de départ',
                             'min' => date('Y-m-d', strtotime('+1 day')),
-                            'value' => date('Y-m-d', strtotime('+1 day')),
                         ],
                     ])
                     ->add('adults', NumberType::class, [
@@ -115,9 +113,9 @@ class LodgingController extends AbstractController
     {
         $lodging = $repository->find($id);
 
-        $reservation = [];
+        $reservationInfos = [];
 
-        $form = $this->createFormBuilder($reservation)
+        $form = $this->createFormBuilder($reservationInfos)
                     ->add('checkin', DateType::class, [
                         'widget' => 'single_text',
                         'required' => true,
@@ -165,9 +163,9 @@ class LodgingController extends AbstractController
             $checkIn = $data['checkin']->format('Y-m-d');
             $checkOut = $data['checkout']->format('Y-m-d');
             $pricePerNight = $lodging->getPrice();
-            $reservation = array_merge($data, ['checkIn' => $checkIn, 'checkOut' => $checkOut, 'pricePerNight' => $pricePerNight, 'lodgingId' => $id, 'lodgingName' => $lodgingName]);
+            $reservationInfos = array_merge($data, ['checkIn' => $checkIn, 'checkOut' => $checkOut, 'pricePerNight' => $pricePerNight, 'lodgingId' => $id, 'lodgingName' => $lodgingName]);
             return $this->redirectToRoute('app_reservation', [
-                'reservation' => $reservation,
+                'reservationInfos' => $reservationInfos,
             ]);
         }
 

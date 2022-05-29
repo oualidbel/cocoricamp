@@ -10,7 +10,11 @@
         <a href="{{ path('app_lodging') }}">Hébergements</a>
         <a href="{{ path('app_services') }}">Nos services</a>
         <a href="{{ path('app_about_us') }}">Qui sommes-nous ?</a>
-        <a href="{{ path('app_login') }}">S'identifier</a>
+        {% if (is_granted("ROLE_USER")) or (is_granted("ROLE_ADMIN")) %}
+            <a href="{{ path('app_logout') }}">Se déconnecter</a>
+        {% else %}
+            <a href="{{ path('app_login') }}">S'identifier</a>
+        {% endif %}
     </div>
     <div class="column-container">
         <h3>Assistance</h3>

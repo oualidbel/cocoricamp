@@ -62,23 +62,25 @@ class LodgingRepository extends ServiceEntityRepository
         $query = $this->createQueryBuilder('l');
 
         if (isset($filter['lodging'])) {
-            $query->andWhere('l.category >= :category')
+            $query->andWhere('l.category = :category')
                 ->setParameter('category', $filter['lodging']);
         }
 
-        // if (isset($filter['check_in'])) {
-        //     $query->andWhere('l.check_in >= :check_in')
-        //         ->setParameter('check_in', $filter['check_in']);
-        // }
+        // check if chekin date is in a reservation in reservation table
 
-        // if (isset($filter['check_out'])) {
-        //     $query->andWhere('l.check_out <= :check_out')
-        //         ->setParameter('check_out', $filter['check_out']);
-        // }
+        if (isset($filter['check_in'])) {
+            $query->andWhere('l.check_in >= :check_in')
+                ->setParameter('check_in', $filter['check_in']);
+        }
+
+        if (isset($filter['check_out'])) {
+            $query->andWhere('l.check_out <= :check_out')
+                ->setParameter('check_out', $filter['check_out']);
+        }
 
         if (isset($filter['adults'])) {
             $nbPeople = $filter['adults'] + $filter['children'];
-            $query->andWhere('l.host_capacity = :nbPeople')
+            $query->andWhere('l.host_capacity >= :nbPeople')
                 ->setParameter('nbPeople', $nbPeople);
         }
 

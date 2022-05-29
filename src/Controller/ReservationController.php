@@ -2,6 +2,10 @@
 
 namespace App\Controller;
 
+use DateTime;
+use App\Entity\Lodging;
+use App\Entity\Reservation;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,16 +14,20 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ReservationController extends AbstractController
 {
-    #[Route('/reservation', name: 'app_reservation')]
-    public function index(Request $request): Response
+    #[Route('/réservation', name: 'app_reservation', methods: ['GET', 'POST'])]
+    public function index(Request $request, EntityManagerInterface $entitymanager): Response
     {
-        $reservation = $request->get('reservation');
-        $nbNights = (strtotime($reservation['checkOut']) - strtotime($reservation['checkIn'])) / (60 * 60 * 24);
-        $price = $nbNights * $reservation['pricePerNight'];
+        $reservationInfos = $request->get('reservationInfos');
+        $nbNights = (strtotime($reservationInfos['checkOut']) - strtotime($reservationInfos['checkIn'])) / (60 * 60 * 24);
+        $price = $nbNights * $reservationInfos['pricePerNight'];
+
+        $reservation = new Reservation();
+        $lodging = $entitymanager->getRepository(Lodging::class)->find($reservationInfos['lodgingId']);
 
         $clientInfos = [];
 
@@ -32,9 +40,12 @@ class ReservationController extends AbstractController
                         'label' => 'Nom',
                         'required' => true,
                     ])
-                    ->add('email', EmailType::class, [
-                        'label' => 'Email',
+                    ->add('email', RepeatedType::class, [
+                        'type' => EmailType::class,
+                        'invalid_message' => 'Les adresses emails doivent correspondre.',
                         'required' => true,
+                        'first_options'  => ['label' => 'Email'],
+                        'second_options' => ['label' => 'Confirmer votre email'],
                     ])
                     ->add('phone', TelType::class, [
                         'label' => 'Téléphone',
@@ -65,11 +76,30 @@ class ReservationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $clientInfos = $form->getData();
+            $reservationInfosEntity = array_merge($reservationInfos, $clientInfos, ['price' => $price, 'checkIn' => DateTime::createFromFormat('Y-m-d', $reservationInfos['checkIn']), 'checkOut' => DateTime::createFromFormat('Y-m-d', $reservationInfos['checkOut']), 'address' => $clientInfos['address'] . ',' . $clientInfos['city'] . ',' . $clientInfos['zipCode'] . ',' . $clientInfos['country'], 'numberPeople' => $reservationInfos['adults'] + $reservationInfos['children'], 'reservationDate' => DateTime::createFromFormat('Y-m-d', $reservationInfos['checkIn']), 'checkOut' => DateTime::createFromFormat('Y-m-d', date('Y-m-d')), 'lodging' => $lodging]);
+            unset($reservationInfosEntity['lodgingId'], $reservationInfosEntity['adults'], $reservationInfosEntity['children'], $reservationInfosEntity['pricePerNight'], $reservationInfosEntity['lodgingName'], $reservationInfosEntity['city'], $reservationInfosEntity['zipCode'], $reservationInfosEntity['country']);
+
+            $reservation->setLodging($reservationInfosEntity['lodging']);
+            $reservation->setReservationCheckin($reservationInfosEntity['checkIn']);
+            $reservation->setReservationCheckout($reservationInfosEntity['checkOut']);
+            $reservation->setReservationPrice($reservationInfosEntity['price']);
+            $reservation->setNumberPeople($reservationInfosEntity['numberPeople']);
+            $reservation->setClientAddress($reservationInfosEntity['address']);
+            $reservation->setClientEmail($reservationInfosEntity['email']);
+            $reservation->setClientFirstname($reservationInfosEntity['firstname']);
+            $reservation->setClientLastname($reservationInfosEntity['lastname']);
+            $reservation->setClientPhone($reservationInfosEntity['phone']);
+            $reservation->setReservationDate($reservationInfosEntity['reservationDate']);
+            $reservation->setReservationStatus('Pending');
+
+            $entitymanager->persist($reservation);
+            $entitymanager->flush();
+            return $this->redirectToRoute('app_reservation_checkout', ['reservationId' => $reservation->getId()]);
         }
 
         return $this->render('reservation/index.html.twig', [
             'controller_name' => 'ReservationController',
-            'reservation' => $reservation,
+            'reservationInfos' => $reservationInfos,
             'nbNights' => $nbNights,
             'price' => $price,
             'clientInfosForm' => $form->createView(),

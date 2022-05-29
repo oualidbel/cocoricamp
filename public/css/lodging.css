@@ -139,6 +139,7 @@ body {
 .content-lodging p {
     width: 100%;
     text-align: justify;
+    line-height: 1.5;
     margin-bottom: 1.25rem;
 }
 
@@ -177,15 +178,6 @@ body {
 
     .lodging-about p {
         text-align: center;
-    }
-
-    .check-availibility-form {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-right: 0;
-        margin-bottom: 5rem;
-        max-width: 100%;
     }
 
     .container-lodging {

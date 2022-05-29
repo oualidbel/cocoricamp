@@ -32,6 +32,72 @@ body {
     margin-bottom: 1.75rem;
 }
 
+.lodging-check-availibility-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2.5rem;
+    margin-bottom: 5rem;
+    max-width: 100%;
+}
+
+.lodging-check-availibility-form .form-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.lodging-check-availibility-form .form-field label {
+    display: flex;
+    flex-direction: row;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+}
+
+.lodging-check-availibility-form .form-field i {
+    font-size: .875rem;
+    margin-right: .375rem;
+}
+
+.lodging-check-availibility-form .form-field:last-of-type {
+    justify-content: flex-end;
+}
+
+.lodging-check-availibility-form .form-field input, .lodging-check-availibility-form .form-field select {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border: none;
+    border-bottom: .125rem solid black;
+    background-color: transparent;
+    max-width: 100%;
+}
+
+.lodging-check-availibility-form .form-field input:active, .lodging-check-availibility-form .form-field select:active {
+    border: none;
+}
+
+.lodging-check-availibility-form .form-field .submit {
+    box-sizing: border-box;
+    font-weight: 'Raleway', sans-serif;
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: .75rem;
+    border: solid 2px black;
+    color: black;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.lodging-check-availibility-form .form-field .submit:hover {
+    color: white;
+    background-color: black;
+}
+
 .lodging-show-page-content {
     padding-left: 7vw;
     padding-right: 7vw;
@@ -211,13 +277,33 @@ body {
         text-align: center;
     }
 
-    .check-availibility-form {
+    .lodging-check-availibility-form {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         margin-right: 0;
         margin-bottom: 5rem;
         max-width: 100%;
+    }
+
+    .lodging-check-availibility-form {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 5rem;
+        max-width: 100%;
+    }
+
+    .lodging-check-availibility-form .form-field {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 13vw;
+    }
+
+    .lodging-check-availibility-form .nb-travelers {
+        max-width: 15vw !important;
     }
 
     .container-lodging-show {

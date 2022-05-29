@@ -10,12 +10,12 @@
         <div class="reservation-date-container">
             <div class="reservation-checkin-date">
                 <h3>Arrivée</h3>
-                <p>{{ reservation.checkIn|date('d/m/Y') }}</p>
+                <p>{{ reservationInfos.checkIn|date('d/m/Y') }}</p>
             </div>
             <hr>
             <div class="reservation-checkout-date">
                 <h3>Départ</h3>
-                <p>{{ reservation.checkOut|date('d/m/Y') }}</p>
+                <p>{{ reservationInfos.checkOut|date('d/m/Y') }}</p>
             </div>
             <h3>Durée totale du séjour :</h3>
             <p>{% if nbNights > 1 %}{{ nbNights }} nuits{% else %}{{ nbNights }} nuit{% endif %}</p>
@@ -24,7 +24,7 @@
         <div class="reservation-price-container">
             <h3>Récapitulatif du montant</h3>
             <div class="reservation-price-line">
-                <p>{{ reservation.lodgingName }}</p>
+                <p>{{ reservationInfos.lodgingName }}</p>
                 <p>{{ price - (price * 0.2) }}€</p>
             </div>
             <div class="reservation-price-line">
@@ -55,9 +55,16 @@
             </div>
         </div>
 
-        <div class="reservation-form-field">
-            <label for="email">Email</label>
-            {{ form_widget(clientInfosForm.email) }}
+        <div class="reservation-form-line">
+            <div class="reservation-form-field">
+                {{ form_label(clientInfosForm.email.first) }}
+                {{ form_widget(clientInfosForm.email.first) }}
+            </div>
+
+            <div class="reservation-form-field">
+                {{ form_label(clientInfosForm.email.second) }}
+                {{ form_widget(clientInfosForm.email.second) }}
+            </div>
         </div>
         
         <div class="reservation-form-field">
