@@ -20,24 +20,6 @@ class HomeController extends AbstractController
         $checkAvailability = [];
 
         $form = $this->createFormBuilder($checkAvailability)
-                    ->add('check_in', DateType::class, [
-                        'widget' => 'single_text',
-                        'required' => false,
-                        'attr' => [
-                            'placeholder' => 'Date d\'arrivée',
-                            'min' => date('Y-m-d'),
-                            'value' => date('Y-m-d'),
-                        ],
-                    ])
-                    ->add('check_out', DateType::class, [
-                        'widget' => 'single_text',
-                        'required' => false,
-                        'attr' => [
-                            'placeholder' => 'Date de départ',
-                            'min' => date('Y-m-d', strtotime('+1 day')),
-                            'value' => date('Y-m-d', strtotime('+1 day')),
-                        ],
-                    ])
                     ->add('adults', NumberType::class, [
                         'attr' => [
                             'min' => 0,
