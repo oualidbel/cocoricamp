@@ -187,6 +187,10 @@ body {
         padding-bottom: 5rem;
     }
 
+    .content-lodging {
+        height: 20vh;
+    }
+
     .lodging {
         width: 25vw;
         display: flex;
