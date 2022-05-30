@@ -22,10 +22,15 @@ class ReservationController extends AbstractController
     #[Route('/réservation', name: 'app_reservation', methods: ['GET', 'POST'])]
     public function index(Request $request, EntityManagerInterface $entitymanager): Response
     {
-        $user = $this->getUser();
-        $userFirstname = $user->getFirstName();
-        $userLastname = $user->getLastName();
-        $userEmail = $user->getUserIdentifier();
+        if ($user = $this->getUser()) {
+            $userFirstname = $user->getFirstName();
+            $userLastname = $user->getLastName();
+            $userEmail = $user->getUserIdentifier();
+        } else {
+            $userFirstname = '';
+            $userLastname = '';
+            $userEmail = '';
+        }
 
         $reservationInfos = $request->get('reservationInfos');
         $nbNights = (strtotime($reservationInfos['checkOut']) - strtotime($reservationInfos['checkIn'])) / (60 * 60 * 24);
