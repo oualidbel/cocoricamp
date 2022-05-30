@@ -1,0 +1,167 @@
+body {
+  font-family: 'raleway', sans-serif;
+}
+
+.about-hero-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+  background-image: url(../images/about-hero-header-img.jpg);
+  background-size: cover;
+  background-position: top 65% center;
+  z-index: 0;
+}
+
+.about-hero-header-content {
+  margin-left: 7vw;
+  margin-right: 7vw;
+  color: white;
+}
+
+.about-hero-header-content p {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.about-hero-header-content h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.team-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 3.75rem;
+}
+
+.team-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f2f2f2;
+}
+
+.team-text .welcome-text {
+  width: 100%;
+  height: auto;
+  margin-top: -1.125rem;
+  margin-bottom: 2.5rem;
+}
+
+.team-text .welcome-text svg text:first-of-type {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  stroke: white;
+  stroke-width: .5rem;
+  fill: black;
+}
+
+.team-text .welcome-text svg text:last-of-type {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  fill: black;
+}
+
+.team-text p {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgb(105, 105, 105);
+  text-align: justify;
+}
+
+.team-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 7vw;
+  padding-right: 7vw;
+  background-color: white;
+}
+
+.team-member {
+  position: relative;
+  width: 100%;
+  background-image: url(../images/team-member.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.team-member::after {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
+
+.team-member-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .625rem;
+  width: 100%;
+  height: calc(100% - 2.5rem);
+  padding-bottom: 2.5rem;
+  color: white;
+  backdrop-filter: brightness(50%) grayscale(100%);
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+.team-member-text:hover {
+  backdrop-filter: brightness(50%) grayscale(0%);
+}
+
+.team-member-text h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.team-member-text a {
+  font-weight: 600;
+  color: rgb(213, 146, 116);
+}
+
+/* .team-member img {
+  position: absolute;
+  width: 100%;
+} */
+
+@media only screen and (min-width: 768px) {
+  .about-hero-header-content h1 {
+    max-width: 100%;
+    font-size: 3.375rem;
+  }
+
+  .team-text {
+    text-align: center;
+  }
+
+  .team-member {
+    width: calc(50% - .625rem);
+  }
+
+  .team-member-text h3 {
+    font-size: 2rem;
+  }
+
+  .team-member-text p {
+    font-size: 1.25rem;
+  }
+
+  .team-member-text a {
+    font-size: 1.25rem;
+  }
+}
