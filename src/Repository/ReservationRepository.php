@@ -39,6 +39,33 @@ class ReservationRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+    * @return Reservation[] Returns an array of Reservation objects
+    */
+    public function findReservationsByLodgingId($lodgingId)
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.lodging = :lodgingId')
+            ->setParameter('lodgingId', $lodgingId)
+            ->orderBy('r.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /**
+     * @return Reservation[] Returns an array of Reservation objects
+     */
+    public function findReservationsByClientEmail($clientEmail)
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.client_email = :clientEmail')
+            ->setParameter('clientEmail', $clientEmail)
+            ->orderBy('r.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 //    /**
 //     * @return Reservation[] Returns an array of Reservation objects
 //     */

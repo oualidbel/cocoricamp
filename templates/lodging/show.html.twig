@@ -25,16 +25,6 @@
             <div class="lodging-check-availibility-form">
 
                 <div class="form-field">
-                    <label for="check-in-date"><i class="fa-regular fa-calendar"></i>Date d'arrivée</label>
-                    {{ form_widget(formCheckAvailibility.check_in) }}
-                </div>
-
-                <div class="form-field">
-                    <label for="check-out-date"><i class="fa-regular fa-calendar"></i>Date de départ</label>
-                    {{ form_widget(formCheckAvailibility.check_out) }}
-                </div>
-
-                <div class="form-field">
                     <label for="nb-travelers"><i class="fa-regular fa-user"></i>Voyageurs</label>
                     <input type="text" name="nb-travelers" class="nb-travelers" id="nb-travelers" value="Qui ?" readonly>
                     <div class="travelers" id="travelers-window">
@@ -76,6 +66,11 @@
                 </div>
 
                 <div class="form-field">
+                    <label for="lodging"><i class="fa-regular fa-compass"></i> Logement</label>
+                    {{ form_widget(formCheckAvailibility.location) }}
+                </div>
+
+                <div class="form-field">
                     {{ form_widget(formCheckAvailibility.submit) }}
                 </div>
 
@@ -94,8 +89,7 @@
                 
                 <div class="content-lodging-show">
                     <h2>{{ lodging.title }}</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>{{ lodging.content }}</p>
                     <div class="content-lodging-show-last-line">
                         <div class="content-lodging-show-last-line-left">
                             <p><i class="fa-regular fa-user"></i> {{ lodging.hostcapacity }}</p>

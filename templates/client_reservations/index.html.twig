@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vos réservations{% endblock %}
+
+{% block body %}
+
+<div class="lodging-show-page-content">
+
+    <div class="lodging-show-about">
+        <h2>Informations</h2>
+        <div class="welcome-text">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3rem">
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+                    Vos réservations
+                </text>
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+                    Vos réservations
+                </text>
+            </svg>
+        </div>
+    </div>
+
+    {% for reservation in reservations %}
+        <div class="container-reservation-show">
+            <div class="reservation-show">
+
+                <div class="reservation-show-img-container">
+                    <img src=" {{ asset('images/') }}{{ reservationsImages[index] }}" alt="tipis"/>
+                </div>
+                
+                <div class="content-reservation-show">
+                    <div class="content-reservation-show-last-line">
+                        <div class="content-reservation-show-last-line-left">
+                            <p><i class="fa-regular fa-user"></i> {{ reservation.numberpeople }}</p>
+                            <p><i class="fa-regular fa-compass"></i> {{ reservationsDates[index] }}</p>
+                        </div>
+                        <div class="content-reservation-show-last-line-right">
+                            <h3>{{ reservation.reservationprice }}€</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        {% set index = index + 1 %}
+    {% endfor %}
+</div>
+
+{% endblock %}

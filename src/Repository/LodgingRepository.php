@@ -3,8 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Lodging;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Lodging>
@@ -66,16 +66,9 @@ class LodgingRepository extends ServiceEntityRepository
                 ->setParameter('category', $filter['lodging']);
         }
 
-        // check if chekin date is in a reservation in reservation table
-
-        if (isset($filter['check_in'])) {
-            $query->andWhere('l.check_in >= :check_in')
-                ->setParameter('check_in', $filter['check_in']);
-        }
-
-        if (isset($filter['check_out'])) {
-            $query->andWhere('l.check_out <= :check_out')
-                ->setParameter('check_out', $filter['check_out']);
+        if (isset($filter['location'])) {
+            $query->andWhere('l.location = :location')
+                ->setParameter('location', $filter['location']);
         }
 
         if (isset($filter['adults'])) {
