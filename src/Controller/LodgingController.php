@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Reservation;
+use Doctrine\ORM\EntityManager;
 use App\Repository\LodgingRepository;
+use App\Repository\ReservationRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -40,22 +44,6 @@ class LodgingController extends AbstractController
         $checkAvailability = [];
 
         $form = $this->createFormBuilder($checkAvailability)
-                    ->add('check_in', DateType::class, [
-                        'widget' => 'single_text',
-                        'required' => false,
-                        'attr' => [
-                            'placeholder' => 'Date d\'arrivée',
-                            'min' => date('Y-m-d'),
-                        ],
-                    ])
-                    ->add('check_out', DateType::class, [
-                        'widget' => 'single_text',
-                        'required' => false,
-                        'attr' => [
-                            'placeholder' => 'Date de départ',
-                            'min' => date('Y-m-d', strtotime('+1 day')),
-                        ],
-                    ])
                     ->add('adults', NumberType::class, [
                         'attr' => [
                             'min' => 0,
@@ -78,6 +66,23 @@ class LodgingController extends AbstractController
                             'Tipis' => 2,
                             'Cabanes' => 3,
                             'Tentes' => 4,
+                        ],
+                        'attr' => [
+                            'placeholder' => 'Logement',
+                        ],
+                    ])
+                    ->add('location', ChoiceType::class, [
+                        'choices' => [
+                            'Où ?' => null,
+                            'Paris' => 1,
+                            'Marseille' => 2,
+                            'Lille' => 3,
+                            'Nantes' => 4,
+                            'Bordeaux' => 5,
+                            'Lyon' => 6,
+                            'Saint-Étienne' => 7,
+                            'Nice' => 8,
+                            'Tahiti Teahupo\'o' => 9,
                         ],
                         'attr' => [
                             'placeholder' => 'Logement',
@@ -109,7 +114,7 @@ class LodgingController extends AbstractController
     }
 
     #[Route('/hébergements/disponible/{id}', name: 'app_lodging_show_id', methods: ['GET', 'POST'])]
-    public function showId(LodgingRepository $repository, Request $request, int $id): Response
+    public function showId(LodgingRepository $repository, ReservationRepository $reservationRepository, Request $request, int $id, EntityManagerInterface $entityManager): Response
     {
         $lodging = $repository->find($id);
 
@@ -153,12 +158,24 @@ class LodgingController extends AbstractController
                     ])
                     ->getForm();
 
+        // check values of chekout and checkin if on change, checkin is in between checkin and checkout of all reservations
+
+
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid() && $form->getData()['adults'] + $form->getData()['children'] > 0) {
             // data is an array with ... keys
             $data = $form->getData();
-            // lodging name
+            // if checkin is in between checkin and checkout of all reservations
+            $reservations = $reservationRepository->findReservationsByLodgingId($id);
+            if ($reservations) {
+                foreach ($reservations as $reservation) {
+                    if ($reservation->getReservationCheckin() <= $data['checkin'] && $reservation->getReservationCheckout() >= $data['checkout']) {
+                        $this->addFlash('danger', 'Désolé, il y a déjà une réservation entre ces dates.');
+                        return $this->redirectToRoute('app_lodging_show_id', ['id' => $id]);
+                    }
+                }
+            }
             $lodgingName = $lodging->getTitle();
             $checkIn = $data['checkin']->format('Y-m-d');
             $checkOut = $data['checkout']->format('Y-m-d');

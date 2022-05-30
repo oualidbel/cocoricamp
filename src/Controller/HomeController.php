@@ -67,6 +67,23 @@ class HomeController extends AbstractController
                             'placeholder' => 'Logement',
                         ],
                     ])
+                    ->add('location', ChoiceType::class, [
+                        'choices' => [
+                            'Où ?' => null,
+                            'Paris' => 1,
+                            'Marseille' => 2,
+                            'Lille' => 3,
+                            'Nantes' => 4,
+                            'Bordeaux' => 5,
+                            'Lyon' => 6,
+                            'Saint-Étienne' => 7,
+                            'Nice' => 8,
+                            'Tahiti Teahupo\'o' => 9,
+                        ],
+                        'attr' => [
+                            'placeholder' => 'Logement',
+                        ],
+                    ])
                     ->add('submit', SubmitType::class, [
                         'label' => 'Vérifier la disponibilité',
                         'attr' => [

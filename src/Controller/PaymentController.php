@@ -60,7 +60,7 @@ class PaymentController extends AbstractController
     {
         $reservationId = $request->get('reservationId');
         $reservation = $entitymanager->getRepository(Reservation::class)->find($reservationId);
-        $reservation->setStatus('paid');
+        $reservation->setReservationStatus('paid');
 
         return $this->render('payment/success.html.twig', []);
     }
@@ -71,7 +71,7 @@ class PaymentController extends AbstractController
     {
         $reservationId = $request->get('reservationId');
         $reservation = $entitymanager->getRepository(Reservation::class)->find($reservationId);
-        $reservation->setStatus('cancelled');
+        $reservation->setReservationStatus('cancelled');
         return $this->render('payment/cancel.html.twig', []);
     }
 }

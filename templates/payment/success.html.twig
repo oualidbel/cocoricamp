@@ -1,7 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Payer votre réservation{% endblock %}
+{% block title %}Félicitations !{% endblock %}
 
 {% block body %}
+
+<div class="after-payment-page-content">
+    <h1>Votre réservation a été enregistré avec succès !</h1>
+    <p>Vous pouvez consulter votre réservation en cliquant sur le lien ci-dessous :</p>
+    <a href="">Voir votre réservation</a>
+    <a href="{{ path('app_home') }}">Retour à l'accueil</a>
+</div>
 
 {% endblock %}
