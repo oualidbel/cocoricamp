@@ -46,19 +46,32 @@
         <div class="reservation-form-line">
             <div class="reservation-form-field">
                 <label for="firstname">Prénom</label>
-                {{ form_widget(clientInfosForm.firstname) }}
+                {% if (is_granted("ROLE_USER")) or (is_granted("ROLE_ADMIN")) %}
+                    {{ form_widget(clientInfosForm.firstname, {'value' : userFirstname}) }}
+                {% else %}
+                    {{ form_widget(clientInfosForm.firstname) }}
+                {% endif %}
             </div>
 
             <div class="reservation-form-field">
                 <label for="lastname">Nom</label>
-                {{ form_widget(clientInfosForm.lastname) }}
+                {% if (is_granted("ROLE_USER")) or (is_granted("ROLE_ADMIN")) %}
+                    {{ form_widget(clientInfosForm.lastname, {'value' : userLastname}) }}
+                {% else %}
+                    {{ form_widget(clientInfosForm.lastname) }}
+                {% endif %}
             </div>
         </div>
 
         <div class="reservation-form-line">
             <div class="reservation-form-field">
                 {{ form_label(clientInfosForm.email.first) }}
-                {{ form_widget(clientInfosForm.email.first) }}
+
+                {% if (is_granted("ROLE_USER")) or (is_granted("ROLE_ADMIN")) %}
+                    {{ form_widget(clientInfosForm.email.first, {'value' : userEmail}) }}
+                {% else %}
+                    {{ form_widget(clientInfosForm.email.first) }}
+                {% endif %}
             </div>
 
             <div class="reservation-form-field">

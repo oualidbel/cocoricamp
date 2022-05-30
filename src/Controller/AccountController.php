@@ -38,7 +38,8 @@ class AccountController extends AbstractController
         $editAccount = [];
 
         $form = $this->createFormBuilder($editAccount)
-                    ->add('lastname', TextType::class, [        'data' => $user->getLastname()
+                    ->add('lastname', TextType::class, [ 
+                        'data' => $user->getLastname()
                     ])
                     ->add('firstname', TextType::class, [
                         'data' => $user->getFirstname()
