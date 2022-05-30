@@ -22,6 +22,11 @@ class ReservationController extends AbstractController
     #[Route('/réservation', name: 'app_reservation', methods: ['GET', 'POST'])]
     public function index(Request $request, EntityManagerInterface $entitymanager): Response
     {
+        $user = $this->getUser();
+        $userFirstname = $user->getFirstName();
+        $userLastname = $user->getLastName();
+        $userEmail = $user->getUserIdentifier();
+
         $reservationInfos = $request->get('reservationInfos');
         $nbNights = (strtotime($reservationInfos['checkOut']) - strtotime($reservationInfos['checkIn'])) / (60 * 60 * 24);
         $price = $nbNights * $reservationInfos['pricePerNight'];
@@ -102,6 +107,9 @@ class ReservationController extends AbstractController
             'reservationInfos' => $reservationInfos,
             'nbNights' => $nbNights,
             'price' => $price,
+            'userFirstname' => $userFirstname,
+            'userLastname' => $userLastname,
+            'userEmail' => $userEmail,
             'clientInfosForm' => $form->createView(),
         ]);
     }
