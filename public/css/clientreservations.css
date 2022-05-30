@@ -1,0 +1,219 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.reservation-show-page-content {
+    padding-left: 7vw;
+    padding-right: 7vw;
+    background-color: #fff;
+}
+
+.reservation-show-about {
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reservation-show-about h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f2f2f2;
+}
+
+.reservation-show-about .welcome-text {
+    width: 100%;
+    height: auto;
+    margin-top: -1.125rem;
+    margin-bottom: 2.5rem;
+}
+
+.reservation-show-about .welcome-text svg text:first-of-type {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    stroke: white;
+    stroke-width: .5rem;
+    fill: black;
+}
+
+.reservation-show-about .welcome-text svg text:last-of-type {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    fill: black;
+}
+
+.reservation-show-about p {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: rgb(105, 105, 105);
+    text-align: justify;
+}
+
+.container-reservation-show {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2.5rem;
+    padding-bottom: 5rem;
+}
+
+.reservation-show {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reservation-show-img-container {
+    overflow: hidden;
+}
+
+.reservation-show-img-container img {
+    width: 100%;
+}
+
+.content-reservation-show {
+    background-color: rgb(248, 248, 246);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 2.5rem;
+    width: calc(100% - 5rem);
+}
+
+.content-reservation-show h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.content-reservation-show p {
+    width: 100%;
+    text-align: justify;
+}
+
+.content-reservation-show-last-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    font-size: .625rem;
+}
+
+.content-reservation-show-last-line-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 30%;
+}
+
+.content-reservation-show-last-line-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: .625rem;
+    width: 70%;
+}
+
+.content-reservation-show-last-line-right h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+@media only screen and (min-width: 768px) {
+    /* .reservation-show-about h2 {
+        font-size: 3.375rem;
+    }
+
+    .reservation-show-about .welcome-text svg text:first-of-type {
+        font-size: 2rem;
+    }
+
+    .reservation-show-about .welcome-text svg text:last-of-type {
+        font-size: 2rem;
+    } */
+
+    .reservation-show-about p {
+        text-align: center;
+    }
+
+    .container-reservation-show {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 5rem;
+    }
+
+    .reservation-show {
+        width: 100%;
+        height: 30vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .reservation-show-img-container {
+        width: 40%;
+        height: 30vh;
+        overflow: hidden;
+    }
+
+    .content-reservation-show {
+        width: calc(60% - 5rem);
+        height: calc(100% - 5rem);
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .content-reservation-show-last-line {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        font-size: 1rem;
+    }
+
+    .content-reservation-show-last-line-left {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1.25rem;
+        width: 50%;
+    }
+
+    .content-reservation-show-last-line-left p {
+        width: auto;
+    }
+
+    .content-reservation-show-last-line-right {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1.25rem;
+        width: 50%;
+    }
+
+    .content-reservation-show-last-line-right h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .content-reservation-show-last-line-right h3 span {
+        font-size: 1rem;
+    }
+}

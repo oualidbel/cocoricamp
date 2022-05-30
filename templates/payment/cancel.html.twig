@@ -1,7 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Payer votre réservation{% endblock %}
+{% block title %}Annulation{% endblock %}
 
 {% block body %}
+
+<div class="after-payment-page-content">
+    <h1>Votre réservation a été annulé.</h1>
+    <a href="{{ path('app_home') }}">Retour à l'accueil</a>
+</div>
 
 {% endblock %}
