@@ -322,13 +322,13 @@ body {
     }
 
     .lodging-show-img-container {
-        width: 40%;
+        width: 30%;
         height: 30vh;
         overflow: hidden;
     }
 
     .content-lodging-show {
-        width: calc(60% - 5rem);
+        width: calc(70% - 5rem);
         height: calc(100% - 5rem);
         justify-content: space-between;
         align-items: flex-start;
