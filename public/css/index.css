@@ -479,7 +479,6 @@ main {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 30%;
     height: 100%;
     gap: 1.25rem;
 }
@@ -656,6 +655,10 @@ main {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+    }
+
+    .review-container {
+        width: 30%;
     }
 
     .review-text p:first-of-type {
