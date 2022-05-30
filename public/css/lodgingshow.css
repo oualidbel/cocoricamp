@@ -172,10 +172,10 @@ body {
 
 .lodging-show-img-container img {
     width: 100%;
-    -webkit-transition: all 1s ease-out;
+    /* -webkit-transition: all 1s ease-out;
     transition: all 1s ease-out;
     -webkit-transform: scale(1.4);
-    transform: scale(1.4);
+    transform: scale(1.4); */
 }
 
 .lodging-show-img-container:hover img {
