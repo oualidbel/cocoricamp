@@ -115,6 +115,7 @@ body {
     border-bottom: .125rem solid black;
     background-color: transparent;
     max-width: 100%;
+    color: black;
 }
 
 .reservation-form .form-field input:active, .reservation-form .form-field select:active {
@@ -147,7 +148,6 @@ body {
 }
 
 .content-lodging-show-id p {
-    width: 100%;
     line-height: 1.5;
     text-align: justify;
 }
@@ -159,6 +159,15 @@ body {
     align-items: center;
     width: 100%;
     height: auto;
+}
+
+.content-lodging-show-id-last-line-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.25rem;
+    width: 50%;
 }
 
 .content-lodging-show-id-last-line-right {

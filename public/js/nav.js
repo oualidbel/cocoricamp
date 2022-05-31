@@ -47,9 +47,9 @@ let newValue = 0;
 
 window.addEventListener('scroll', () => {
     newValue = window.pageYOffset;
-    if (oldValue < newValue) {
+    if (oldValue + 20 < newValue) {
         nav.style.top = `${-nav.offsetHeight}px`;
-    } else if (oldValue > newValue) {
+    } else if (oldValue > newValue + 20) {
         nav.style.top = '0';
     }
     oldValue = newValue;
