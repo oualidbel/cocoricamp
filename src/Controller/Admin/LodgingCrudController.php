@@ -24,8 +24,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 class LodgingCrudController extends AbstractCrudController
 {
     public const ACTION_DUPLICATE = 'duplicate';
-    public const LODGINGS_BASE_PATH = 'upload/images/lodgings';
-    public const LODGINGS_UPLOAD_DIR = 'public/upload/images/lodgings';
+    public const LODGINGS_BASE_PATH = 'images';
+    public const LODGINGS_UPLOAD_DIR = 'public/images';
     
     public static function getEntityFqcn(): string
     {
